@@ -1,0 +1,17 @@
+@import "@scss/variables.scss";
+@import "@scss/mixins.scss";
+
+.logo {
+  @include font-size(24, 28);
+  @include d-flex-standart;
+
+  width: 150px;
+
+  img {
+    filter: invert(100%);
+  }
+
+  span {
+    color: $light;
+  }
+}

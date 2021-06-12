@@ -1,0 +1,11 @@
+@import "@scss/mixins.scss";
+@import "@scss/variables.scss";
+
+.settings ul {
+  width: 350px;
+  margin: 48px auto 0;
+
+  li {
+    @include d-flex-standart;
+  }
+}

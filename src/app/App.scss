@@ -1,0 +1,85 @@
+@import "@scss/mixins.scss";
+@import "@scss/variables.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  font-size: inherit;
+  font-family: inherit;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  font-size: inherit;
+  font-family: inherit;
+
+  border: none;
+}
+
+body {
+  @include font-size(16, 24);
+
+  color: $dark;
+  font-weight: normal;
+  font-family: Roboto, sans-serif;
+
+  background-color: $light;
+}
+
+.container {
+  width: 1140px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include bold;
+}
+
+h1 {
+  @include font-size(40, 47);
+}
+
+h2 {
+  @include font-size(32, 38);
+}
+
+h3 {
+  @include font-size(28, 33);
+}
+
+h4 {
+  @include font-size(24, 28);
+}
+
+h5 {
+  @include font-size(20, 23);
+}
+
+h6 {
+  @include font-size(16, 17);
+}

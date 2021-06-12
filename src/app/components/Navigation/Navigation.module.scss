@@ -1,0 +1,33 @@
+@import "@scss/variables.scss";
+@import "@scss/mixins.scss";
+
+.navigation {
+  a {
+    padding: 8px;
+
+    color: $light;
+
+    border-radius: 10px;
+
+    transition: 0.5s;
+
+    &:hover {
+      color: $dark;
+
+      background-color: $light;
+    }
+  }
+
+  .selected {
+    color: $dark;
+
+    background-color: $light;
+    border-radius: 10px;
+  }
+
+  ul {
+    @include d-flex-standart;
+
+    column-gap: 25px;
+  }
+}

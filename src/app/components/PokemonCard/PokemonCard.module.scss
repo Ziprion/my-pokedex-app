@@ -1,0 +1,56 @@
+@import "@scss/variables.scss";
+@import "@scss/mixins.scss";
+
+.pokemonCard {
+  width: 180px;
+  padding: 16px;
+
+  color: $dark;
+
+  border: 1px solid $dark;
+  border-radius: 15px;
+
+  img {
+    width: 100%;
+  }
+
+  span {
+    display: block;
+
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+
+    color: $light;
+    text-align: center;
+
+    background: $medium-gray;
+    border: 1px solid $medium-gray;
+    border-radius: 10px;
+
+    &:hover {
+      color: $dark;
+
+      background-color: $light;
+      border: 1px solid $dark;
+    }
+
+    &[disabled] {
+      color: #d2d5db;
+
+      background: #6c7589;
+    }
+  }
+}
+.pokemonName {}
+
+.pokemonCatchedDate {
+  @include small;
+
+  height: 20px;
+}

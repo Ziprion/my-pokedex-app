@@ -1,0 +1,31 @@
+@import "./variables.scss";
+
+@mixin font-size($size, $height) {
+  font-size: #{$size}px;
+  line-height: #{$height}px;
+}
+
+@mixin small {
+  @include font-size(12.8, 19.2);
+}
+
+@mixin bold {
+  font-weight: bold;
+}
+
+@mixin hide-scrollbar {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin d-flex-standart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
