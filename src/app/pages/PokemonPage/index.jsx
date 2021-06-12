@@ -7,8 +7,6 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './PokemonPage.module.scss';
 
-// const getPokemon = (id) => fetchPokemonById(id);
-
 const PokemonPage = () => {
   const { t } = useTranslation();
   const [name, setName] = useState(null);
