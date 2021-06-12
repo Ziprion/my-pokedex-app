@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 const isDev = process.env.NODE_ENV === 'development';
@@ -56,6 +57,14 @@ module.exports = {
       title: 'My Pokedex App',
       template: path.join(__dirname, 'src/template/index.pug'),
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'assets'),
+          to: path.resolve(__dirname, 'dist'),
+        },
+      ],
+    }),
   ],
   optimization: {
     minimize: isProd,
@@ -85,10 +94,6 @@ module.exports = {
           'postcss-loader',
           'sass-loader',
         ],
-      },
-      {
-        test: /\.(png|jpg|svg|gif)$/,
-        use: ['file-loader'],
       },
     ],
   },
