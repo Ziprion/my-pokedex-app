@@ -5,4 +5,4 @@ const webApi = 'https://my-json-server.typicode.com/ziprion/my-pokedex-app';
 const limit = 20;
 
 export const getPokemonsByPage = (page) => axios.get(`${webApi}/pokemons?_page=${page}&_limit=${limit}`);
-export const fetchPokemonById = (id) => axios.get(`${webApi}/pokemons/${id}`);
+export const fetchPokemonById = (id) => axios.get(`${webApi}/${id}`);
