@@ -37,6 +37,8 @@ input {
 body {
   @include font-size(16, 24);
 
+  min-height: 101vh;
+
   color: $dark;
   font-weight: normal;
   font-family: Roboto, sans-serif;

@@ -10,7 +10,7 @@ const PokemonCard = ({
   const { t } = useTranslation();
 
   return (
-    <Link to={`/pokemon/${id}`}>
+    <Link to={`/${id}`}>
       <div className={styles.pokemonCard}>
         <img src={`/images/pokemons/${id}.png`} alt={`The ${name}`} />
         <span>{name}</span>
