@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import PokemonCard from '@components/PokemonCard';
+import PokemonItem from '@components/PokemonItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { catchPokemon } from '@store/pokemonsSlice';
 
@@ -21,7 +21,7 @@ const PokemonsList = ({ justCatched }) => {
         const catched = isCatchedById(id);
         const catchedAt = catched ? catched.catchedAt : null;
         return (
-          <PokemonCard
+          <PokemonItem
             key={id}
             id={id}
             name={name}

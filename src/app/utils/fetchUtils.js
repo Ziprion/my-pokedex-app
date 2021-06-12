@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const pathApi = 'https://my-json-server.typicode.com/Ziprion/my-pokedex-app';
-// const pathApi = 'http://localhost:3000';
+const isDev = process.env.NODE_ENV === 'development';
+const pathApi = isDev ? 'http://localhost:3000' : 'https://my-json-server.typicode.com/Ziprion/my-pokedex-app';
 const limit = 20;
 
 export const getPokemonsByPage = (page) => axios.get(`${pathApi}/pokemons?_page=${page}&_limit=${limit}`);

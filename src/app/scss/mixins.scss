@@ -29,3 +29,12 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@mixin pokemons-box {
+  @include d-flex-standart;
+
+  flex-flow: row wrap;
+  gap: 50px;
+  justify-content: center;
+  margin: 0 auto;
+}

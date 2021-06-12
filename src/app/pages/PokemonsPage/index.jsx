@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadPokemons, stopLoading } from '@store/pokemonsSlice';
 import InfiniteScroll from 'react-infinite-scroller';
 import { getPokemonsByPage } from '@utils/fetchUtils';
-import PokemonsList from '@components/PokemonsList';
+import PokemonsList from '@containers/PokemonsList';
 
 import styles from './PokemonsPage.module.scss';
 
@@ -25,8 +25,8 @@ const PokemonsPage = ({ justCatched = false }) => {
       return;
     }
 
-    const response = await getPokemonsByPage(page);
-    dispatch(loadPokemons(response.data));
+    const { data } = await getPokemonsByPage(page);
+    dispatch(loadPokemons(data));
   };
 
   return (

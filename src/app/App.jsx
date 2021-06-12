@@ -4,9 +4,10 @@ import {
 } from 'react-router-dom';
 import Header from '@components/Header';
 import PokemonsPage from '@pages/PokemonsPage';
-import PokemonPage from '@pages/PokemonPage';
+import CatchedPokemonsPage from '@pages/CatchedPokemonsPage';
 import NoMatchPage from '@pages/NoMatchPage';
 import SettingsPage from '@pages/SettingsPage';
+import PokemonPage from '@pages/PokemonCardPage';
 
 import './App.scss';
 
@@ -19,7 +20,7 @@ const App = () => (
           <PokemonsPage />
         </Route>
         <Route exact path="/catched">
-          <PokemonsPage justCatched />
+          <CatchedPokemonsPage />
         </Route>
         <Route exact path="/settings">
           <SettingsPage />
