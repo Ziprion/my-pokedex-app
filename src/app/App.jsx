@@ -5,7 +5,6 @@ import {
 import Header from '@components/Header';
 import PokemonsPage from '@pages/PokemonsPage';
 import PokemonPage from '@pages/PokemonPage';
-import CatchedPokemonsPage from '@pages/CatchedPokemonsPage';
 import NoMatchPage from '@pages/NoMatchPage';
 import SettingsPage from '@pages/SettingsPage';
 
@@ -20,7 +19,7 @@ const App = () => (
           <PokemonsPage />
         </Route>
         <Route exact path="/catched">
-          <CatchedPokemonsPage />
+          <PokemonsPage justCatched />
         </Route>
         <Route exact path="/settings">
           <SettingsPage />

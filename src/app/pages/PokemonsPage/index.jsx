@@ -3,11 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadPokemons, stopLoading } from '@store/pokemonsSlice';
 import InfiniteScroll from 'react-infinite-scroller';
 import { getPokemonsByPage } from '@utils/fetchUtils';
-import PokemonsList from '@containers/PokemonsList';
+import PokemonsList from '@components/PokemonsList';
 
 import styles from './PokemonsPage.module.scss';
 
-const PokemonsPage = () => {
+const PokemonsPage = ({ justCatched = false }) => {
+  if (justCatched) {
+    return (
+      <div className={styles.pokemonBox}>
+        <PokemonsList justCatched />
+      </div>
+    );
+  }
+
   const dispatch = useDispatch();
   const { pokemons, page, loading } = useSelector(({ pokemonsState }) => pokemonsState);
 
@@ -22,17 +30,15 @@ const PokemonsPage = () => {
   };
 
   return (
-    <>
-      <InfiniteScroll
-        className={styles.pokemonBox}
-        initialLoad={false}
-        loadMore={fetchMoreData}
-        hasMore={loading}
-        loader={<h4 key={0}>Loading...</h4>}
-      >
-        <PokemonsList pokemons={pokemons} />
-      </InfiniteScroll>
-    </>
+    <InfiniteScroll
+      className={styles.pokemonBox}
+      initialLoad={false}
+      loadMore={fetchMoreData}
+      hasMore={loading}
+      loader={<h4 key={0}>Loading...</h4>}
+    >
+      <PokemonsList />
+    </InfiniteScroll>
   );
 };
 

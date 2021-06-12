@@ -4,9 +4,11 @@ import PokemonCard from '@components/PokemonCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { catchPokemon } from '@store/pokemonsSlice';
 
-const PokemonsList = ({ pokemons }) => {
-  const catchedPokemons = useSelector((state) => state.pokemonsState.catchedPokemons);
+const PokemonsList = ({ justCatched }) => {
   const dispatch = useDispatch();
+  const { pokemons, catchedPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
+  const isCatchedById = (id) => _.find(catchedPokemons, { id });
+  const currentPokemons = justCatched ? pokemons.filter(({ id }) => isCatchedById(id)) : pokemons;
 
   const handleClick = (pokemonId) => (e) => {
     e.preventDefault();
@@ -15,8 +17,8 @@ const PokemonsList = ({ pokemons }) => {
 
   return (
     <>
-      {pokemons.map(({ id, name }) => {
-        const catched = _.find(catchedPokemons, { id });
+      {currentPokemons.map(({ id, name }) => {
+        const catched = isCatchedById(id);
         const catchedAt = catched ? catched.catchedAt : null;
         return (
           <PokemonCard
