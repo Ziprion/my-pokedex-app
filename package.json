@@ -6,11 +6,13 @@
   "engines": {
     "node": "14.x"
   },
+  "proxy": "https://my-json-server.typicode.com/Ziprion/my-pokedex-app",
   "scripts": {
     "build": "NODE_ENV=production npx webpack",
     "start": "NODE_ENV=development npx webpack serve & npm run server",
     "dev": "NODE_ENV=development npx webpack",
-    "server": "npx json-server --watch server/db.json"
+    "server": "npx json-server --watch server/db.json",
+    "nd-server": "nodemon server.js"
   },
   "author": "Maxim Novikov <maximkanv@gmail.com>",
   "license": "ISC",
@@ -20,6 +22,7 @@
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "core-js": "^3.14.0",
+    "express": "^4.17.1",
     "i18next": "^20.3.1",
     "json-server": "^0.16.3",
     "lodash": "^4.17.21",
@@ -50,11 +53,11 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "jest": "^27.0.4",
     "mini-css-extract-plugin": "^1.6.0",
     "node-sass": "^6.0.0",
+    "nodemon": "^2.0.7",
     "optimize-css-assets-webpack-plugin": "^6.0.0",
     "postcss": "^8.3.0",
     "postcss-loader": "^5.3.0",
