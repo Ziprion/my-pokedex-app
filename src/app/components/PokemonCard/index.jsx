@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
 import styles from './PokemonCard.module.scss';
@@ -7,7 +6,6 @@ import styles from './PokemonCard.module.scss';
 const PokemonCard = ({
   id, name, catched, catchedAt,
 }) => {
-  const { t } = useTranslation();
   const statusClasses = cn({
     [styles.catched]: true,
     [styles.success]: catched,
