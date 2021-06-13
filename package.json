@@ -19,6 +19,7 @@
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "core-js": "^3.14.0",
+    "heroku": "^7.54.1",
     "i18next": "^20.3.1",
     "json-server": "^0.16.3",
     "lodash": "^4.17.21",

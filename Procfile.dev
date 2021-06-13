@@ -1,0 +1,2 @@
+web: npx json-server --watch server/db.json
+frontend: npx webpack serve
