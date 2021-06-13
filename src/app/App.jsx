@@ -16,7 +16,7 @@ const App = () => (
     <Router>
       <Header />
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <PokemonsPage />
         </Route>
         <Route path="/catched">
