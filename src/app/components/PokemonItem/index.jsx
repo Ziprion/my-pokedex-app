@@ -5,19 +5,18 @@ import { Link } from 'react-router-dom';
 import styles from './PokemonItem.module.scss';
 
 const PokemonItem = ({
-  id, name, catched, catchedAt, handleClick,
+  id, name, catched, handleClick,
 }) => {
   const { t } = useTranslation();
 
   return (
     <Link to={`/${id}`}>
-      <div className={styles.pokemonCard}>
-        <img src={`/images/pokemons/${id}.png`} alt={`The ${name}`} />
-        <span>{name}</span>
-        <span className={styles.pokemonCatchedDate}>
-          {catchedAt ? `${t('catched')}: ${catchedAt}` : null}
-        </span>
-        <button type="button" disabled={catched} onClick={handleClick(id)}>
+      <div className={styles.card}>
+        <div className={styles.image}>
+          <img src={`/images/pokemons/${id}.png`} onError={(e) => { e.target.src = '/images/pokemons/no-available.png'; }} alt={`The ${name}`} />
+        </div>
+        <span className={styles.name}>{name}</span>
+        <button className={styles.button} type="button" disabled={catched} onClick={handleClick(id)}>
           {t('catch')}
         </button>
       </div>

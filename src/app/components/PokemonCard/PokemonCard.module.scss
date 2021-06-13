@@ -1,16 +1,75 @@
 @import "@scss/variables.scss";
 @import "@scss/mixins.scss";
 
-.pokemonPage {
-  @include d-flex-standart;
+.card {
+  position: relative;
 
-  width: $width1;
-  margin: 0 auto;
+  width: 80%;
+  margin: 20px auto 0;
 
-  border: 1px solid $dark;
+  background: url("../../../../assets/images/icons/pokeball-back.svg") no-repeat right center;
+  background-size: contain;
+
   border-radius: 15px;
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.id {
+  @include font-size(20, 23);
+
+  display: block;
 }
 
 .name {
-  @include font-size(40, 47);
+  @include font-size(28, 33);
+
+  display: block;
+
+  margin-top: 10px;
+
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.image {
+  margin: 50px 0 0 70px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.catched {
+  @include small;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 200px;
+
+  img {
+    height: 34px;
+  }
+
+  span {
+    margin: 0 2px;
+  }
+}
+
+.status {
+  @include d-flex-standart;
+
+  justify-content: flex-start;
+}
+
+.success {
+  color: $success;
+}
+
+.danger {
+  color: $danger;
 }

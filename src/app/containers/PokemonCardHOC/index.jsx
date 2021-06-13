@@ -7,10 +7,11 @@ const PokemonCardHOC = ({ id }) => {
   const { name } = useSelector(({ pokemonsState: { currentPokemon } }) => currentPokemon);
   const { catchedPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
   const isCatched = _.find(catchedPokemons, { id });
+  const catched = !!isCatched;
   const catchedAt = isCatched ? isCatched.catchedAt : null;
 
   return (
-    <PokemonCard id={id} name={name} catchedAt={catchedAt} />
+    <PokemonCard id={id} name={name} catched={catched} catchedAt={catchedAt} />
   );
 };
 
