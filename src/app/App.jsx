@@ -16,13 +16,13 @@ const App = () => (
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/">
+        <Route path="/">
           <PokemonsPage />
         </Route>
-        <Route exact path="/catched">
+        <Route path="/catched">
           <CatchedPokemonsPage />
         </Route>
-        <Route exact path="/settings">
+        <Route path="/settings">
           <SettingsPage />
         </Route>
         <Route path="/:id">
