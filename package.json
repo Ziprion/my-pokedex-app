@@ -14,7 +14,6 @@
   },
   "author": "Maxim Novikov <maximkanv@gmail.com>",
   "license": "ISC",
-  "homepage": "/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "axios": "^0.21.1",
