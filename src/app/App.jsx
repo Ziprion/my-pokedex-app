@@ -19,18 +19,19 @@ const App = () => (
         <Route exact path="/">
           <PokemonsPage />
         </Route>
-        <Route path="/catched">
+        <Route exact path="/catched">
           <CatchedPokemonsPage />
         </Route>
-        <Route path="/settings">
+        <Route exact path="/settings">
           <SettingsPage />
         </Route>
-        <Route path="/:id">
+        <Route exact path="/:id">
           <PokemonPage />
         </Route>
         <Route path="*">
           <NoMatchPage />
         </Route>
+
       </Switch>
     </Router>
   </div>

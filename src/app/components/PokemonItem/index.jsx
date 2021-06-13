@@ -10,7 +10,7 @@ const PokemonItem = ({
   const { t } = useTranslation();
 
   return (
-    <Link to={`/${id}`}>
+    <Link exact to={`/${id}`}>
       <div className={styles.card}>
         <div className={styles.image}>
           <img src={`/images/pokemons/${id}.png`} onError={(e) => { e.target.src = '/images/pokemons/no-available.png'; }} alt={`The ${name}`} />
