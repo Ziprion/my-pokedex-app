@@ -47,41 +47,25 @@ body {
 }
 
 .container {
-  width: 1140px;
-  min-width: 320px;
+  width: $width0;
   margin: 0 auto;
   padding: 100px 0;
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @include bold;
-}
+  @media screen and (max-width: $breakpoint1) {
+    width: $width1;
+  }
 
-h1 {
-  @include font-size(40, 47);
-}
+  @media screen and (max-width: $breakpoint2) {
+    width: $width2;
+  }
 
-h2 {
-  @include font-size(32, 38);
-}
+  @media screen and (max-width: $breakpoint3) {
+    width: $width3;
+  }
 
-h3 {
-  @include font-size(28, 33);
-}
-
-h4 {
-  @include font-size(24, 28);
-}
-
-h5 {
-  @include font-size(20, 23);
-}
-
-h6 {
-  @include font-size(16, 17);
+  @media screen and (max-width: $breakpoint4) {
+    width: $width5;
+    min-width: 320px;
+    padding: 100px 24px 0;
+  }
 }

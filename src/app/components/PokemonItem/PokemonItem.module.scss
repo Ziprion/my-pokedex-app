@@ -16,6 +16,13 @@
 
     background-color: $blue;
   }
+
+  @media screen and (max-width: $breakpoint5) {
+    width: $width5;
+    max-width: 300px;
+
+    background-size: 240px;
+  }
 }
 
 .name {
@@ -32,16 +39,23 @@
 .image {
   width: 156px;
   height: 156px;
+  margin: 0 auto;
 
   img {
     width: 100%;
+  }
+
+  @media screen and (max-width: $breakpoint5) {
+    width: 80%;
+    height: auto;
   }
 }
 
 .button {
   display: block;
-  width: 150px;
-  margin: 0 auto;
+  width: 95%;
+  max-width: 150px;
+  margin: 10px auto 0;
   padding: 8px;
 
   color: $light;
