@@ -38,6 +38,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: isDev ? 'main.js' : 'main.[contenthash:8].js',
+    publicPath: '/',
     clean: true,
   },
   devServer: {

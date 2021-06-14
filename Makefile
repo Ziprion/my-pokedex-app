@@ -1,21 +1,21 @@
 install:
 	npm install
 
-start:
-	npm run start
+lint:
+	npx eslint . --ext js,jsx
+	npx stylelint **/*.scss
 
 build:
 	npm run build
 
-dev:
-	npm run dev
+dev-build:
+	npm run dev-build
 
-server:
-	npm run server
+prod:
+	npm run build & npm run db & npm run app
 
-lint:
-	npx eslint . --ext js,jsx
-	npx stylelint **/*.scss
+start:
+	npm run db & npm run development
 
 test:
 	npm test -s
