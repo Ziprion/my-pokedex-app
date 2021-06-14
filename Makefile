@@ -12,7 +12,7 @@ dev-build:
 	npm run dev-build
 
 prod:
-	npm run build & npm run db & npm run app
+	npm run build & npm run app
 
 start:
 	npm run db & npm run development
