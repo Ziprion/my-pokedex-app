@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const isVercel = false;
+const isVercel = true;
 const pathApi = isVercel ? 'https://my-json-server.typicode.com/Ziprion/my-pokedex-app' : 'http://localhost:3000';
 const limit = 20;
 
