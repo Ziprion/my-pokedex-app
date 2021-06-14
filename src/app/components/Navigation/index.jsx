@@ -26,6 +26,10 @@ const Navigation = () => {
           </NavLink>
         </li>
       </ul>
+      <div className={styles.toggleMenu}>
+        <div className={styles.toggleOne} />
+        <div className={styles.toggleTwo} />
+      </div>
     </nav>
   );
 };

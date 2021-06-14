@@ -29,5 +29,51 @@
     @include d-flex-standart;
 
     column-gap: 25px;
+
+    @media screen and (max-width: $breakpoint4) {
+      // display: none;
+    }
   }
+}
+
+.toggleMenu {
+  position: relative;
+
+  display: none;
+  width: 34px;
+  height: 34px;
+
+  cursor: pointer;
+
+  @media screen and (max-width: $breakpoint4) {
+    display: block;
+  }
+}
+
+.toggleOne {
+  position: absolute;
+  top: 10px;
+
+  width: 34px;
+  height: 2px;
+
+  background: $light;
+
+  transition: 0.4s ease;
+
+  content: "";
+}
+
+.toggleTwo {
+  position: absolute;
+  top: 22px;
+
+  width: 34px;
+  height: 2px;
+
+  background: $light;
+
+  transition: 0.4s ease;
+
+  content: "";
 }
