@@ -16,19 +16,19 @@ app.use(express.static(path.join(__dirname, '..', 'dist')));
 
 app.get('/api/v1/pokemons', router);
 
-// app.get('/api/v1/login', (req, res) => {
-//   const username = _.get(req, 'body.username');
-//   const password = _.get(req, 'body.password');
-//   const user = users.find((u) => u.username === username);
+app.get('/api/v1/login', (req, res) => {
+  const username = _.get(req, 'body.username');
+  const password = _.get(req, 'body.password');
+  const user = users.find((u) => u.username === username);
 
-//   if (!user || user.password !== password) {
-//     res.send(new Unauthorized());
-//     return;
-//   }
+  if (!user || user.password !== password) {
+    res.send(new Unauthorized());
+    return;
+  }
 
-//   const token = app.jwt.sign({ userId: user.id });
-//   res.send({ token, username });
-// });
+  const token = app.jwt.sign({ userId: user.id });
+  res.send({ token, username });
+});
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));

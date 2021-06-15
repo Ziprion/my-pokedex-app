@@ -21,7 +21,7 @@ const PokemonsPage = ({ justCatched = false }) => {
   const { pokemons, page, loading } = useSelector(({ pokemonsState }) => pokemonsState);
 
   const fetchMoreData = async () => {
-    if (pokemons.length >= 1949) {
+    if (pokemons.length >= 949) {
       dispatch(stopLoading());
       return;
     }
