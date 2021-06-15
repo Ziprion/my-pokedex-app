@@ -25,7 +25,7 @@ const App = () => (
         <Route exact path="/settings">
           <SettingsPage />
         </Route>
-        <Route exact path="/pokemons/:id">
+        <Route path="/pokemons/:id">
           <PokemonPage />
         </Route>
         <Route path="*">

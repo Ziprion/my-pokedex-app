@@ -15,7 +15,7 @@ const PokemonCardPage = ({ setLoading }) => {
 
   useEffect(async () => {
     try {
-      const { data: { name: pokemonName } } = await fetchPokemonById(id);
+      const { data: { 0: { name: pokemonName } } } = await fetchPokemonById(id);
       setName(pokemonName);
     } catch (e) {
       setError('Not found');
