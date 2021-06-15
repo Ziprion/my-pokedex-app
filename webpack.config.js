@@ -28,6 +28,7 @@ module.exports = {
       '@scss': path.resolve(__dirname, 'src/app/scss'),
       '@components': path.resolve(__dirname, 'src/app/components/'),
       '@hooks': path.resolve(__dirname, 'src/app/hooks/'),
+      '@HOCs': path.resolve(__dirname, 'src/app/HOCs/'),
       '@pages': path.resolve(__dirname, 'src/app/pages/'),
       '@store': path.resolve(__dirname, 'src/app/store/'),
       '@containers': path.resolve(__dirname, 'src/app/containers/'),

@@ -4,6 +4,7 @@ import { loadPokemons, stopLoading } from '@store/pokemonsSlice';
 import InfiniteScroll from 'react-infinite-scroller';
 import { getPokemonsByPage } from '@utils/fetchUtils';
 import PokemonsList from '@containers/PokemonsList';
+import AnimationLoader from '@components/AnimationLoader';
 
 import styles from './PokemonsPage.module.scss';
 
@@ -20,7 +21,7 @@ const PokemonsPage = ({ justCatched = false }) => {
   const { pokemons, page, loading } = useSelector(({ pokemonsState }) => pokemonsState);
 
   const fetchMoreData = async () => {
-    if (pokemons.length >= 949) {
+    if (pokemons.length >= 1949) {
       dispatch(stopLoading());
       return;
     }
@@ -35,7 +36,7 @@ const PokemonsPage = ({ justCatched = false }) => {
       initialLoad={false}
       loadMore={fetchMoreData}
       hasMore={loading}
-      loader={<h4 key={0}>Loading...</h4>}
+      loader={<AnimationLoader />}
     >
       <PokemonsList />
     </InfiniteScroll>

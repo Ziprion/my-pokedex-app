@@ -13,6 +13,10 @@
   border: 1px solid $medium-gray;
   border-radius: 15px;
 
+  &:active {
+    background-color: $light;
+  }
+
   &:hover {
     color: $light;
 

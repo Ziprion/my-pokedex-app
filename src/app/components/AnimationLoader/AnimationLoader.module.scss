@@ -1,0 +1,79 @@
+@import "@scss/variables.scss";
+@import "@scss/mixins.scss";
+
+@keyframes flip {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.flip {
+  animation: flip 1000ms infinite;
+}
+
+$size: 50px;
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.pokeball {
+  position: relative;
+
+  box-sizing: content-box;
+
+  width: $size;
+  height: $size;
+  margin: 10px auto;
+
+  background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+  border: solid ($size / 25) black;
+  border-radius: $size;
+
+  &::before,
+  &::after {
+    display: block;
+
+    content: "";
+  }
+
+  &,
+  &::before,
+  &::after {
+    transition: all 600ms cubic-bezier(0.167, 0.4, 0.36, 0.75);
+  }
+
+  &::before {
+    width: $size;
+    height: ($size / 2) - ($size / 25 / 2);
+
+    background: linear-gradient(to bottom, #d10000 0%, #f00 50%);
+    border-bottom: solid ($size / 25) black;
+    border-radius: ($size / 2) ($size / 2) 0 0;
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: $size / 5;
+    height: $size / 5;
+
+    background: linear-gradient(to bottom, #fff 0%, #ccc 100%);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 ($size / 50) black,
+      0 0 0 ($size / 25) #ddd,
+      0 0 0 ($size / 14) black,
+      0 0 ($size / 10) ($size / 17) rgba(0, 0, 0, 0.4);
+    transform: translate(-50%, -50%);
+
+    content: "";
+  }
+}

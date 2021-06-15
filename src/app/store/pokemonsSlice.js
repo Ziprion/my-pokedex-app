@@ -5,9 +5,6 @@ export const pokemonsSlice = createSlice({
   initialState: {
     pokemons: [],
     catchedPokemons: [],
-    currentPokemon: {
-      id: null, name: null, catched: null, catchedAt: null,
-    },
     loading: true,
     page: 2,
   },
@@ -25,9 +22,6 @@ export const pokemonsSlice = createSlice({
     catchPokemon: (state, { payload }) => {
       state.catchedPokemons.push({ id: payload, catchedAt: new Date().toLocaleDateString() });
     },
-    showPokemon: (state, { payload }) => {
-      state.currentPokemon = { ...payload };
-    },
   },
 });
 
@@ -36,7 +30,6 @@ export const {
   loadPokemons,
   stopLoading,
   catchPokemon,
-  showPokemon,
 } = pokemonsSlice.actions;
 
 export default pokemonsSlice.reducer;

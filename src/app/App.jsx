@@ -31,7 +31,6 @@ const App = () => (
         <Route path="*">
           <NoMatchPage />
         </Route>
-
       </Switch>
     </Router>
   </div>
