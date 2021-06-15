@@ -5,10 +5,8 @@ import { Provider } from 'react-redux';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import reducer from '@store';
-import { initialPokemons } from '@store/pokemonsSlice';
 import resources from '@locales';
 import { setDefaultLanguage, getCurrentLanguage } from '@utils/languageUtils';
-import { getPokemonsByPage } from '@utils/fetchUtils';
 
 import App from './app/App';
 
@@ -27,9 +25,6 @@ export default async () => {
     reducer,
     devTools: process.env.NODE_ENV !== 'production',
   });
-
-  const initStore = await getPokemonsByPage(1);
-  store.dispatch(initialPokemons(initStore.data));
 
   render(
     <Provider store={store}>

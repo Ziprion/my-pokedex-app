@@ -13,10 +13,6 @@
   border: 1px solid $medium-gray;
   border-radius: 15px;
 
-  &:active {
-    background-color: $light;
-  }
-
   &:hover {
     color: $light;
 
@@ -34,10 +30,10 @@
     height: 180px;
     margin: 0 4px 8px;
 
-    @include font-size(10, 16);
-
     background-position: 55px -2px;
     background-size: 50px;
+
+    @include font-size(10, 16);
   }
 }
 
@@ -97,4 +93,13 @@
   @media screen and (max-width: $breakpoint5) {
     margin-top: 5px;
   }
+}
+
+.someclass {
+  position: relative;
+
+  width: 142px;
+  height: 142px;
+
+  // background-color: $light;
 }

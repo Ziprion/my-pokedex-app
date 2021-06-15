@@ -7,9 +7,6 @@ const classes = cn({
   [styles.flip]: true,
 });
 
-const AnimationLoader = () => (
-  <div className={styles.wrapper}><div className={classes} /></div>
-
-);
+const AnimationLoader = () => (<div className={classes} />);
 
 export default AnimationLoader;

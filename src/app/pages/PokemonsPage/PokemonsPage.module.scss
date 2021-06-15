@@ -4,3 +4,8 @@
 .pokemonBox {
   @include pokemons-box;
 }
+
+.loading {
+  width: 100%;
+  margin: 200px auto 0;
+}

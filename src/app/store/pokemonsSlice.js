@@ -6,7 +6,7 @@ export const pokemonsSlice = createSlice({
     pokemons: [],
     catchedPokemons: [],
     loading: true,
-    page: 2,
+    page: 1,
   },
   reducers: {
     initialPokemons: (state, { payload }) => {

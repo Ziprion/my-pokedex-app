@@ -35,8 +35,11 @@
 }
 
 .image {
+  position: relative;
+
   width: 100%;
   max-width: 475px;
+  height: 475px;
   margin: 50px 0 0 70px;
 
   img {

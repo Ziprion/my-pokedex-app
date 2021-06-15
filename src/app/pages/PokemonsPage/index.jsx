@@ -33,10 +33,10 @@ const PokemonsPage = ({ justCatched = false }) => {
   return (
     <InfiniteScroll
       className={styles.pokemonBox}
-      initialLoad={false}
+      initialLoad
       loadMore={fetchMoreData}
       hasMore={loading}
-      loader={<AnimationLoader />}
+      loader={<div className={styles.loading} key={0}><AnimationLoader /></div>}
     >
       <PokemonsList />
     </InfiniteScroll>

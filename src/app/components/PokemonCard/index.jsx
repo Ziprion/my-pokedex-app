@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import ReactImageFallback from 'react-image-fallback';
 
 import styles from './PokemonCard.module.scss';
 
@@ -10,7 +11,6 @@ const PokemonCard = ({
     [styles.catched]: true,
     [styles.success]: catched,
     [styles.danger]: !catched,
-
   });
 
   return (
@@ -20,7 +20,14 @@ const PokemonCard = ({
         {id}
       </span>
       <span className={styles.name}>{name}</span>
-      <img className={styles.image} src={`/images/pokemons/${id}.png`} alt={`The ${name}`} />
+      <div className={styles.image}>
+        <ReactImageFallback
+          src={`/images/pokemons/${id}.png`}
+          fallbackImage="/images/pokemons/no-available.png"
+          initialImage="/images/icons/loading.gif"
+          alt={`The ${name}`}
+        />
+      </div>
       <div className={statusClasses}>
         <div className={styles.status}>
           <span>Status:&nbsp;</span>
