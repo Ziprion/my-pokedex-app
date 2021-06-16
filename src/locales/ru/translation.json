@@ -1,12 +1,19 @@
 {
   "pokemons": "Покемоны",
-  "catchedPokemons": "Пойманные",
+  "pokebag": "Пойманные",
   "settings": "Настройки",
-  "altLogo": "Изображение логотипа",
+  "altLogo": "Логотип",
+  "view": " внешний вид",
+  "status": "Статус",
+  "catched": "Пойман",
+  "noCatched": "Не пойман",
+  "date": "Дата",
+  "catch": "Поймать",
+  "lang": "Язык",
   "langRus": "Русский",
   "langEng": "Английский",
+  "theme": "Тема",
   "themeLight": "Светлая",
   "themeDark": "Темная",
-  "catch": "Поймать",
-  "catched": "Пойман"
+  "notFound": "Не найдено"
 }

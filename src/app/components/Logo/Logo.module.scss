@@ -6,12 +6,13 @@
   @include d-flex-standart;
 
   width: 150px;
+  padding: 0 10px;
 
   img {
-    filter: invert(100%);
+    width: 100%;
   }
 
-  span {
-    color: $light;
+  @media screen and (max-width: $breakpoint4) {
+    width: 100px;
   }
 }

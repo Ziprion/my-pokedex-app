@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import pokemonsReducer from './pokemonsSlice';
 import uiStateReducer from './uiStateSlice';
 

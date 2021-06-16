@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadPokemons, stopLoading } from '@store/pokemonsSlice';
 import InfiniteScroll from 'react-infinite-scroller';
 import { getPokemonsByPage } from '@utils/fetchUtils';
+import { loadPokemons, stopLoading } from '@store/pokemonsSlice';
+
 import PokemonsList from '@containers/PokemonsList';
 import AnimationLoader from '@components/AnimationLoader';
 

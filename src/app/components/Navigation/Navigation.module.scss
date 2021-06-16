@@ -2,8 +2,11 @@
 @import "@scss/mixins.scss";
 
 .navigation {
+  @include d-flex-standart;
+
   a {
-    padding: 8px;
+    display: inline-block;
+    margin: 0 10px;
 
     color: $light;
 
@@ -16,64 +19,66 @@
 
       background-color: $light;
     }
-  }
-
-  .selected {
-    color: $dark;
-
-    background-color: $light;
-    border-radius: 10px;
-  }
-
-  ul {
-    @include d-flex-standart;
-
-    column-gap: 25px;
 
     @media screen and (max-width: $breakpoint4) {
-      // display: none;
+      margin: 0 5px;
     }
   }
 }
 
-.toggleMenu {
-  position: relative;
+.selected {
+  span {
+    color: $dark;
+  }
 
-  display: none;
-  width: 34px;
-  height: 34px;
+  background-color: $light;
+}
 
-  cursor: pointer;
+.image {
+  @include d-flex-standart;
 
-  @media screen and (max-width: $breakpoint4) {
-    display: block;
+  width: 50px;
+  height: 50px;
+
+  img {
+    width: 100%;
   }
 }
 
-.toggleOne {
-  position: absolute;
-  top: 10px;
+.navItem {
+  @include d-flex-standart;
 
-  width: 34px;
-  height: 2px;
+  width: 160px;
+  padding: 3px 6px;
 
-  background: $light;
+  @media screen and (max-width: $breakpoint4) {
+    width: 50px;
+  }
 
-  transition: 0.4s ease;
+  span {
+    display: block;
+    width: 100px;
 
-  content: "";
+    text-align: center;
+
+    @media screen and (max-width: $breakpoint4) {
+      display: none;
+    }
+  }
 }
 
-.toggleTwo {
-  position: absolute;
-  top: 22px;
+.dark {
+  a:hover {
+    color: $light;
 
-  width: 34px;
-  height: 2px;
+    background-color: $medium-gray;
+  }
 
-  background: $light;
+  .selected {
+    background: $medium-gray;
 
-  transition: 0.4s ease;
-
-  content: "";
+    span {
+      color: $light;
+    }
+  }
 }

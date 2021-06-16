@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 export const setDefaultLanguage = () => {
   const defaultLanguage = 'ru';
 
@@ -14,4 +16,9 @@ export const toggleLanguage = () => {
   localStorage.setItem('language', newLanguage);
 
   return newLanguage;
+};
+
+export const loc = (text) => {
+  const { t } = useTranslation();
+  return t(text);
 };

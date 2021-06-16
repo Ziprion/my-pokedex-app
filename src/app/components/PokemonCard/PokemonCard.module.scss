@@ -2,59 +2,79 @@
 @import "@scss/mixins.scss";
 
 .card {
-  position: relative;
-
+  display: grid;
+  grid-template: 30px 50px 1fr/ 1fr 1fr;
+  grid-template-areas:
+    "id status"
+    "name status"
+    "image free";
   width: 80%;
-  margin: 20px auto 0;
+  margin: 0 auto;
 
-  background: url("../../../../assets/images/icons/pokeball-back.svg") no-repeat right center;
-  background-size: contain;
-
-  border-radius: 15px;
-
-  span {
-    font-weight: bold;
+  @media screen and (max-width: $breakpoint4) {
+    grid-template: 30px 50px 80px 1fr/ 1fr;
+    grid-template-areas:
+      "id"
+      "name"
+      "status"
+      "image";
   }
 }
 
 .id {
+  grid-area: id;
+  align-self: center;
+
   @include font-size(20, 23);
 
-  display: block;
+  @media screen and (max-width: $breakpoint4) {
+    text-align: center;
+  }
 }
 
 .name {
   @include font-size(28, 33);
 
-  display: block;
-
-  margin-top: 10px;
+  grid-area: name;
+  align-self: center;
 
   font-weight: bold;
   text-transform: capitalize;
+
+  @media screen and (max-width: $breakpoint4) {
+    text-align: center;
+  }
 }
 
 .image {
-  position: relative;
+  grid-area: image;
 
   width: 100%;
   max-width: 475px;
-  height: 475px;
-  margin: 50px 0 0 70px;
+  margin: 0 auto;
+
+  background: url("../../../../assets/images/icons/pokeball-back.svg") no-repeat  center center;
+  background-size: contain;
 
   img {
     width: 100%;
   }
 }
 
-.catched {
+.status {
+  @include d-flex-standart;
+
+  flex-direction: column;
+
+  grid-area: status;
+  align-self: center;
+  margin: 0 auto;
+  padding: 10px;
+
+  background: $light-gray;
+  border-radius: 10px;
+
   @include small;
-
-  position: absolute;
-  top: 20px;
-  right: 20px;
-
-  width: 200px;
 
   img {
     height: 34px;
@@ -65,7 +85,11 @@
   }
 }
 
-.status {
+.dark {
+  background: $dark;
+}
+
+.catch {
   @include d-flex-standart;
 
   justify-content: flex-start;

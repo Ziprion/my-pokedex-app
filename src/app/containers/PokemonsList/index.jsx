@@ -1,8 +1,9 @@
 import React from 'react';
 import _ from 'lodash';
-import PokemonItem from '@components/PokemonItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { catchPokemon } from '@store/pokemonsSlice';
+
+import PokemonItem from '@components/PokemonItem';
 
 const PokemonsList = ({ justCatched }) => {
   const dispatch = useDispatch();

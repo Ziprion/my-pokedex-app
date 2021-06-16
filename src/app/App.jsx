@@ -2,38 +2,50 @@ import React from 'react';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
+
 import Header from '@components/Header';
 import PokemonsPage from '@pages/PokemonsPage';
-import CatchedPokemonsPage from '@pages/CatchedPokemonsPage';
+import PokeBagPage from '@pages/PokeBagPage';
 import NoMatchPage from '@pages/NoMatchPage';
 import SettingsPage from '@pages/SettingsPage';
-import PokemonPage from '@pages/PokemonCardPage';
+import PokemonCardPage from '@pages/PokemonCardPage';
 
 import './App.scss';
+import { useSelector } from 'react-redux';
 
-const App = () => (
-  <div className="container">
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <PokemonsPage />
-        </Route>
-        <Route exact path="/catched">
-          <CatchedPokemonsPage />
-        </Route>
-        <Route exact path="/settings">
-          <SettingsPage />
-        </Route>
-        <Route path="/pokemons/:id">
-          <PokemonPage />
-        </Route>
-        <Route path="*">
-          <NoMatchPage />
-        </Route>
-      </Switch>
-    </Router>
-  </div>
-);
+const App = () => {
+  const theme = useSelector((state) => state.uiState.theme);
+
+  if (theme === 'dark') {
+    document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
+  }
+
+  return (
+    <div className="container">
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <PokemonsPage />
+          </Route>
+          <Route exact path="/pokebag">
+            <PokeBagPage />
+          </Route>
+          <Route exact path="/settings">
+            <SettingsPage />
+          </Route>
+          <Route path="/pokemons/:id">
+            <PokemonCardPage />
+          </Route>
+          <Route path="*">
+            <NoMatchPage />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+};
 
 export default App;

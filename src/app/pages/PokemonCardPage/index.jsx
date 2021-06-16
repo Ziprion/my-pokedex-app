@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { fetchPokemonById } from '@utils/fetchUtils';
 import _ from 'lodash';
+import { fetchPokemonById } from '@utils/fetchUtils';
+
 import PokemonCard from '@components/PokemonCard';
 import NoMatchPage from '@pages/NoMatchPage';
 import WithLoading from '@HOCs/WithLoading';
@@ -20,7 +21,9 @@ const PokemonCardPage = ({ setLoading }) => {
     } catch (e) {
       setError('Not found');
     }
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 200);
   });
 
   const { catchedPokemons } = useSelector(({ pokemonsState }) => pokemonsState);

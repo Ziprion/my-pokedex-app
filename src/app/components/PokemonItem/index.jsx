@@ -1,29 +1,34 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import ReactImageFallback from 'react-image-fallback';
+import cn from 'classnames';
+import { loc } from '@utils/languageUtils';
+import { isDarkTheme } from '@utils/themeUtils';
 
 import styles from './PokemonItem.module.scss';
 
 const PokemonItem = ({
   id, name, catched, handleClick,
 }) => {
-  const { t } = useTranslation();
+  const itemClasses = cn({
+    [styles.item]: true,
+    [styles.dark]: isDarkTheme(),
+  });
 
   return (
     <Link to={`/pokemons/${id}`}>
-      <div className={styles.card}>
+      <div className={itemClasses}>
         <div className={styles.image}>
           <ReactImageFallback
             src={`/images/pokemons/${id}.png`}
             fallbackImage="/images/pokemons/no-available.png"
             initialImage="/images/icons/loading.gif"
-            alt={`The ${name}`}
+            alt={`${name}${loc('view')}`}
           />
         </div>
         <span className={styles.name}>{name}</span>
         <button className={styles.button} type="button" disabled={catched} onClick={handleClick(id)}>
-          {t('catch')}
+          {loc('catch')}
         </button>
       </div>
     </Link>

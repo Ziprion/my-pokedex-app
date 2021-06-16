@@ -9,21 +9,6 @@
   @include font-size(12.8, 19.2);
 }
 
-@mixin bold {
-  font-weight: bold;
-}
-
-@mixin hide-scrollbar {
-  overflow-x: hidden;
-  overflow-y: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 @mixin d-flex-standart {
   display: flex;
   align-items: center;
@@ -36,4 +21,84 @@
   flex-flow: row wrap;
   justify-content: center;
   margin: 0 auto;
+}
+
+@mixin switcher {
+  .toggleBox {
+    @include d-flex-standart;
+
+    width: 270px;
+    margin: 5px;
+  }
+
+  .point {
+    width: 110px;
+
+    text-align: center;
+  }
+
+  .switch {
+    position: relative;
+
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+
+    input {
+      width: 0;
+      height: 0;
+
+      opacity: 0;
+    }
+
+    input:checked + span::before {
+      transform: translateX(20px);
+    }
+
+    input:focus + span {
+      border: 2px solid $dark;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      background-color: $medium-gray;
+
+      border: 2px solid $medium-gray;
+      border-radius: 26px;
+      cursor: pointer;
+
+      &::before {
+        position: absolute;
+        top: 1px;
+        left: 3px;
+
+        width: 20px;
+        height: 20px;
+
+        background-color: $white;
+        border-radius: 50%;
+
+        transition: 0.4s;
+
+        content: "";
+      }
+    }
+  }
+
+  .dark {
+    span {
+      background-color: $light;
+
+      border: 2px solid $light;
+
+      &::before {
+        background-color: $dark;
+      }
+    }
+  }
 }

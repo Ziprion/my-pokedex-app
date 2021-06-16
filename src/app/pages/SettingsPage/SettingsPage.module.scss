@@ -1,11 +1,20 @@
 @import "@scss/mixins.scss";
 @import "@scss/variables.scss";
 
-.settings ul {
-  width: 350px;
+.settings {
+  width: 320px;
   margin: 48px auto 0;
+  padding: 36px 24px;
 
   li {
     @include d-flex-standart;
+
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: $breakpoint4) {
+    width: 310px;
+    padding: 36px 0;
   }
 }

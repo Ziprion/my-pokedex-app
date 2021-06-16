@@ -1,12 +1,13 @@
 import React from 'react';
+
 import PokemonsList from '@containers/PokemonsList';
 
-import styles from './CatchedPokemonsPage.module.scss';
+import styles from './PokeBagPage.module.scss';
 
-const CatchedPokemonsPage = () => (
+const PokeBagPage = () => (
   <div className={styles.pokemonBox}>
     <PokemonsList justCatched />
   </div>
 );
 
-export default CatchedPokemonsPage;
+export default PokeBagPage;

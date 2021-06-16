@@ -1,18 +1,21 @@
 import React from 'react';
 import i18n from 'i18next';
-import { useTranslation } from 'react-i18next';
-
-import { toggleLanguage, getCurrentLanguage } from '@utils/languageUtils';
+import cn from 'classnames';
+import { toggleLanguage, getCurrentLanguage, loc } from '@utils/languageUtils';
+import { isDarkTheme } from '@utils/themeUtils';
 
 import styles from './LanguageSwitcher.module.scss';
 
 const LanguageSwitcher = () => {
-  const { t } = useTranslation();
+  const switcherClasses = cn({
+    [styles.switch]: true,
+    [styles.dark]: isDarkTheme(),
+  });
 
   return (
     <div className={styles.toggleBox}>
-      <span className={styles.point}>{t('langRus')}</span>
-      <label className={styles.switch}>
+      <span className={styles.point}>{loc('langRus')}</span>
+      <label className={switcherClasses}>
         <input
           type="checkbox"
           checked={getCurrentLanguage() === 'en'}
@@ -20,7 +23,7 @@ const LanguageSwitcher = () => {
         />
         <span />
       </label>
-      <span className={styles.point}>{t('langEng')}</span>
+      <span className={styles.point}>{loc('langEng')}</span>
     </div>
   );
 };

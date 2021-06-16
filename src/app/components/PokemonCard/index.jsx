@@ -1,6 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 import ReactImageFallback from 'react-image-fallback';
+import { loc } from '@utils/languageUtils';
+import { isDarkTheme } from '@utils/themeUtils';
 
 import styles from './PokemonCard.module.scss';
 
@@ -8,9 +10,10 @@ const PokemonCard = ({
   id, name, catched, catchedAt,
 }) => {
   const statusClasses = cn({
-    [styles.catched]: true,
+    [styles.status]: true,
     [styles.success]: catched,
     [styles.danger]: !catched,
+    [styles.dark]: isDarkTheme(),
   });
 
   return (
@@ -25,18 +28,19 @@ const PokemonCard = ({
           src={`/images/pokemons/${id}.png`}
           fallbackImage="/images/pokemons/no-available.png"
           initialImage="/images/icons/loading.gif"
-          alt={`The ${name}`}
+          alt={`${name}${loc('view')}`}
         />
       </div>
       <div className={statusClasses}>
-        <div className={styles.status}>
-          <span>Status:&nbsp;</span>
-          {catched ? <img src="/images/icons/catched.png" alt="catched" /> : <img src="/images/icons/no-catched.png" alt="no catched" />}
-          <span>{catched ? 'Catched!' : 'Not catched'}</span>
+        <div className={styles.catch}>
+          <span>
+            {loc('status')}
+            :&nbsp;
+          </span>
+          {catched ? <img src="/images/icons/catched.png" alt={loc('catched')} /> : <img src="/images/icons/no-catched.png" alt={loc('noCatched')} />}
+          <span>{catched ? loc('catched') : loc('noCatched')}</span>
         </div>
-        <div className={styles.date}>
-          <span>{catched ? `Date: ${catchedAt}` : null}</span>
-        </div>
+        <span>{catched ? `${loc('date')}: ${catchedAt}` : null}</span>
       </div>
 
     </div>

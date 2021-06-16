@@ -1,7 +1,7 @@
 @import "@scss/variables.scss";
 @import "@scss/mixins.scss";
 
-.card {
+.item {
   width: 200px;
   height: 290px;
   margin: 0 15px 30px;
@@ -95,11 +95,12 @@
   }
 }
 
-.someclass {
-  position: relative;
+.dark {
+  color: $light;
 
-  width: 142px;
-  height: 142px;
+  background-color: $semi-dark;
 
-  // background-color: $light;
+  button {
+    background-color: $medium-gray;
+  }
 }

@@ -1,12 +1,19 @@
 {
   "pokemons": "Pokemons",
-  "catchedPokemons": "Catched pokemons",
+  "pokebag": "PokeBag",
   "settings": "Settings",
-  "altLogo": "Logotype image",
+  "altLogo": "Logotype",
+  "view": "'s view",
+  "status": "Status",
+  "catched": "Catched",
+  "noCatched": "Do not catched",
+  "date": "Date",
+  "catch": "Catch",
+  "lang": "Language",
   "langRus": "Russian",
   "langEng": "English",
+  "theme": "Theme",
   "themeLight": "Light",
   "themeDark": "Dark",
-  "catch": "Catch",
-  "catched": "Catched"
+  "notFound": "Not Found"
 }

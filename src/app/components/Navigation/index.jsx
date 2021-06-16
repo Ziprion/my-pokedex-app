@@ -1,35 +1,51 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import cn from 'classnames';
+import { isDarkTheme } from '@utils/themeUtils';
+import { loc } from '@utils/languageUtils';
 
 import styles from './Navigation.module.scss';
 
 const Navigation = () => {
-  const { t } = useTranslation();
+  const сlasses = cn({
+    [styles.navigation]: true,
+    [styles.dark]: isDarkTheme(),
+  });
 
   return (
-    <nav className={styles.navigation}>
-      <ul>
+    <nav>
+      <ul className={сlasses}>
         <li>
           <NavLink exact to="/" activeClassName={styles.selected}>
-            {t('pokemons')}
+            <div className={styles.navItem}>
+              <div className={styles.image}>
+                <img src="/images/icons/pokedex.png" alt={loc('pokemons')} />
+              </div>
+              <span>{loc('pokemons')}</span>
+            </div>
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/catched" activeClassName={styles.selected}>
-            {t('catchedPokemons')}
+          <NavLink exact to="/pokebag" activeClassName={styles.selected}>
+            <div className={styles.navItem}>
+              <div className={styles.image}>
+                <img src="/images/icons/pokebag.png" alt={loc('pokebag')} />
+              </div>
+              <span>{loc('pokebag')}</span>
+            </div>
           </NavLink>
         </li>
         <li>
           <NavLink exact to="/settings" activeClassName={styles.selected}>
-            {t('settings')}
+            <div className={styles.navItem}>
+              <div className={styles.image}>
+                <img src="/images/icons/settings.png" alt={loc('settings')} />
+              </div>
+              <span>{loc('settings')}</span>
+            </div>
           </NavLink>
         </li>
       </ul>
-      <div className={styles.toggleMenu}>
-        <div className={styles.toggleOne} />
-        <div className={styles.toggleTwo} />
-      </div>
     </nav>
   );
 };

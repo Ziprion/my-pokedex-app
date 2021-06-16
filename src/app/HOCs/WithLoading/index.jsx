@@ -1,4 +1,5 @@
 import React, { useState } from 'react'; /* eslint react/jsx-props-no-spreading:0 */
+
 import LoaderWrapper from '@components/LoaderWrapper';
 
 const WithLoading = (Component) => {
