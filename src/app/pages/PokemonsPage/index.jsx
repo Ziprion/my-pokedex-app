@@ -6,6 +6,7 @@ import { loadPokemons, stopLoading } from '@store/pokemonsSlice';
 
 import PokemonsList from '@containers/PokemonsList';
 import AnimationLoader from '@components/AnimationLoader';
+import { totalPokemonsCount } from '../../utils/pokemonUtils';
 
 import styles from './PokemonsPage.module.scss';
 
@@ -22,7 +23,7 @@ const PokemonsPage = ({ justCatched = false }) => {
   const { pokemons, page, loading } = useSelector(({ pokemonsState }) => pokemonsState);
 
   const fetchMoreData = async () => {
-    if (pokemons.length >= 949) {
+    if (pokemons.length >= totalPokemonsCount) {
       dispatch(stopLoading());
       return;
     }

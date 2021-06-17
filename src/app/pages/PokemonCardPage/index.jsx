@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import _ from 'lodash';
 import { fetchPokemonById } from '@utils/fetchUtils';
 
+import SwipePokemons from '@components/SwipePokemons';
 import PokemonCard from '@components/PokemonCard';
 import NoMatchPage from '@pages/NoMatchPage';
 import WithLoading from '@HOCs/WithLoading';
@@ -38,7 +39,10 @@ const PokemonCardPage = ({ setLoading }) => {
   }
 
   return (
-    <PokemonCard id={id} name={name} catched={catched} catchedAt={catchedAt} />
+    <>
+      <SwipePokemons id={id} />
+      <PokemonCard id={id} name={name} catched={catched} catchedAt={catchedAt} />
+    </>
   );
 };
 

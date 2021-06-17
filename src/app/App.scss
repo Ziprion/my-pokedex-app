@@ -55,6 +55,8 @@ body {
 }
 
 .container {
+  position: relative;
+
   width: $width0;
   margin: 0 auto;
   padding: 100px 0;

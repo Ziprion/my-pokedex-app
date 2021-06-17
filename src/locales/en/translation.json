@@ -16,5 +16,7 @@
   "theme": "Theme",
   "themeLight": "Light",
   "themeDark": "Dark",
-  "notFound": "Not Found"
+  "notFound": "Not Found",
+  "next": "Next pokémon",
+  "previous": "Previous pokémon"
 }

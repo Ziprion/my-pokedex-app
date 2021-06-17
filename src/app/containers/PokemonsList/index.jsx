@@ -20,22 +20,21 @@ const PokemonsList = ({ justCatched }) => {
 
   return (
     <>
-      {currentPokemons.length > 0
-        ? currentPokemons.map(({ id, name }) => {
-          const catched = isCatchedById(id);
-          const catchedAt = catched ? catched.catchedAt : null;
-          return (
-            <PokemonItem
-              key={id}
-              id={id}
-              name={name}
-              catched={catched}
-              catchedAt={catchedAt}
-              handleClick={handleClick}
-            />
-          );
-        })
-        : message}
+      {justCatched && currentPokemons.length === 0 ? message : null}
+      {currentPokemons.map(({ id, name }) => {
+        const catched = isCatchedById(id);
+        const catchedAt = catched ? catched.catchedAt : null;
+        return (
+          <PokemonItem
+            key={id}
+            id={id}
+            name={name}
+            catched={catched}
+            catchedAt={catchedAt}
+            handleClick={handleClick}
+          />
+        );
+      })}
     </>
   );
 };

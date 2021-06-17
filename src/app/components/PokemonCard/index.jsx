@@ -16,6 +16,12 @@ const PokemonCard = ({
     [styles.dark]: isDarkTheme(),
   });
 
+  const altText = `${name}${loc('view')}`;
+  const statusText = loc('status');
+  const noCatchedText = loc('noCatched');
+  const catchedText = loc('catched');
+  const dateText = loc('date');
+
   return (
     <div className={styles.card}>
       <span className={styles.id}>
@@ -28,19 +34,19 @@ const PokemonCard = ({
           src={`/images/pokemons/${id}.png`}
           fallbackImage="/images/pokemons/no-available.png"
           initialImage="/images/icons/loading.gif"
-          alt={`${name}${loc('view')}`}
+          alt={altText}
         />
       </div>
       <div className={statusClasses}>
         <div className={styles.catch}>
           <span>
-            {loc('status')}
+            {statusText}
             :&nbsp;
           </span>
-          {catched ? <img src="/images/icons/catched.png" alt={loc('catched')} /> : <img src="/images/icons/no-catched.png" alt={loc('noCatched')} />}
-          <span>{catched ? loc('catched') : loc('noCatched')}</span>
+          {catched ? <img src="/images/icons/catched.png" alt={catchedText} /> : <img src="/images/icons/no-catched.png" alt={noCatchedText} />}
+          <span>{catched ? catchedText : noCatchedText}</span>
         </div>
-        <span>{catched ? `${loc('date')}: ${catchedAt}` : null}</span>
+        <span>{catched ? `${dateText}: ${catchedAt}` : null}</span>
       </div>
 
     </div>
