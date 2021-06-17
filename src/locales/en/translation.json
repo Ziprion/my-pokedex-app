@@ -1,6 +1,7 @@
 {
-  "pokemons": "Pokemons",
-  "pokebag": "PokeBag",
+  "pokemons": "Pokémons",
+  "pokebag": "PokéBag",
+  "emptyPokeBag": "You have no captured Pokémon",
   "settings": "Settings",
   "altLogo": "Logotype",
   "view": "'s view",

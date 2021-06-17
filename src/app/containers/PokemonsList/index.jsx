@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { useSelector, useDispatch } from 'react-redux';
 import { catchPokemon } from '@store/pokemonsSlice';
+import { loc } from '@utils/languageUtils';
 
 import PokemonItem from '@components/PokemonItem';
 
@@ -10,6 +11,7 @@ const PokemonsList = ({ justCatched }) => {
   const { pokemons, catchedPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
   const isCatchedById = (id) => _.find(catchedPokemons, { id });
   const currentPokemons = justCatched ? pokemons.filter(({ id }) => isCatchedById(id)) : pokemons;
+  const message = loc('emptyPokeBag');
 
   const handleClick = (pokemonId) => (e) => {
     e.preventDefault();
@@ -18,22 +20,23 @@ const PokemonsList = ({ justCatched }) => {
 
   return (
     <>
-      {currentPokemons.map(({ id, name }) => {
-        const catched = isCatchedById(id);
-        const catchedAt = catched ? catched.catchedAt : null;
-        return (
-          <PokemonItem
-            key={id}
-            id={id}
-            name={name}
-            catched={catched}
-            catchedAt={catchedAt}
-            handleClick={handleClick}
-          />
-        );
-      })}
+      {currentPokemons.length > 0
+        ? currentPokemons.map(({ id, name }) => {
+          const catched = isCatchedById(id);
+          const catchedAt = catched ? catched.catchedAt : null;
+          return (
+            <PokemonItem
+              key={id}
+              id={id}
+              name={name}
+              catched={catched}
+              catchedAt={catchedAt}
+              handleClick={handleClick}
+            />
+          );
+        })
+        : message}
     </>
-
   );
 };
 
