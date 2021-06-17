@@ -35,18 +35,17 @@ input {
 }
 
 body {
+  @include roboto-regular;
   @include font-size(16, 24);
 
   min-height: 101vh;
 
   color: $dark;
-  font-weight: normal;
-  font-family: Roboto, sans-serif;
 
   background-color: $light;
 
   @media screen and (min-width: 1520px) {
-    background-image: url("../../assets/images/icons/bg.png");
+    background-image: url("/assets/images/icons/bg.png");
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: 200px;

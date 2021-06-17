@@ -9,7 +9,7 @@
 
   color: $dark;
 
-  background: url("../../../../assets/images/icons/pokeball-back.svg")  no-repeat  90px -10px;
+  background: url("/assets/images/icons/pokeball-back.svg")  no-repeat  90px -10px;
   border: 1px solid $medium-gray;
   border-radius: 15px;
 
@@ -38,11 +38,11 @@
 }
 
 .name {
+  @include bold;
+
   display: block;
   min-height: 48px;
   margin-top: 10px;
-
-  font-weight: bold;
 
   text-align: center;
   text-transform: capitalize;
