@@ -58,6 +58,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'My Pokedex App',
       template: path.join(__dirname, 'src/template/index.pug'),
+      favicon: './assets/images/icons/favicon.svg',
     }),
     new CopyWebpackPlugin({
       patterns: [
