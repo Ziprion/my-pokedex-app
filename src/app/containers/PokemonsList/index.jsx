@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import { useSelector, useDispatch } from 'react-redux';
 import { catchPokemon } from '@store/pokemonsStateSlice';
 
@@ -8,7 +7,7 @@ import PokemonItem from '@components/PokemonItem';
 const PokemonsList = ({ pokemons }) => {
   const dispatch = useDispatch();
   const { catchedPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
-  const isCatchedById = (id) => _.find(catchedPokemons, { id });
+  const isCatchedById = (id) => catchedPokemons.find((pokemon) => pokemon.id === id);
 
   const handleClick = (id, name) => (e) => {
     e.preventDefault();
