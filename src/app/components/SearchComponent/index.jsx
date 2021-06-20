@@ -12,7 +12,7 @@ const SearchComponent = () => {
   const [timer, setTimer] = useState(null);
   const { searchText } = useSelector(({ pokemonsState }) => pokemonsState);
 
-  const handleChange = () => ({ target }) => {
+  const handleChange = ({ target }) => {
     dispatch(setSearchingText(target.value.trim()));
     clearTimeout(timer);
     setTimer(setTimeout(async () => {
@@ -38,7 +38,7 @@ const SearchComponent = () => {
         className={inputClasses}
         type="text"
         value={searchText}
-        onChange={handleChange()}
+        onChange={(e) => handleChange(e)}
         placeholder={loc('searchPlaceholder')}
       />
       <button type="button" className={styles.reset} onClick={handleClick}>x</button>
