@@ -17,6 +17,7 @@ const PokeBagPage = () => {
     name.includes(searchText) || String(id).includes(searchText)
   ));
   const sortedPokemons = mappingSortPokemons[sortedBy](currentPokemons);
+
   const emptyBagMessage = loc('emptyPokeBag');
   const noMatchesMessage = loc('notFoundSearch');
   return (

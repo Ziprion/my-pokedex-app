@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export const getNextId = (currentId) => {
   const nextId = currentId + 1 === 803 ? 10001 : currentId + 1;
   return nextId === 10148 ? 1 : nextId;
@@ -9,8 +11,8 @@ export const getPreviousId = (currentId) => {
 };
 
 export const mappingSortPokemons = {
-  nameAsc: (array) => array.sort((a, b) => a.name > b.name),
-  nameDesc: (array) => array.sort((a, b) => a.name < b.name),
-  idAsc: (array) => array.sort((a, b) => a.id > b.id),
-  idDesc: (array) => array.sort((a, b) => a.id < b.id),
+  idAsc: (array) => _.orderBy(array, 'id', 'asc'),
+  idDesc: (array) => _.orderBy(array, 'id', 'desc'),
+  nameAsc: (array) => _.orderBy(array, 'name', 'asc'),
+  nameDesc: (array) => _.orderBy(array, 'name', 'desc'),
 };
