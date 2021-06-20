@@ -6,8 +6,8 @@
   "altLogo": "Логотип",
   "view": " внешний вид",
   "status": "Статус",
-  "catched": "Пойман",
-  "noCatched": "Не пойман",
+  "caught": "Пойман",
+  "noCaught": "Не пойман",
   "date": "Дата",
   "catch": "Поймать",
   "lang": "Язык",
@@ -24,5 +24,6 @@
   "sortNameAsc": "По имени",
   "sortNameDesc": "По имени в обратном порядке",
   "searchPlaceholder": "Поиск по имени или ID",
-  "notFoundSearch": "Нет совпадений"
+  "notFoundSearch": "Нет совпадений",
+  "networkError": "Ошибка сети"
 }

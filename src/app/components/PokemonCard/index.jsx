@@ -7,19 +7,19 @@ import { isDarkTheme } from '@utils/themeUtils';
 import styles from './PokemonCard.module.scss';
 
 const PokemonCard = ({
-  id, name, catched, catchedAt,
+  id, name, caught, caughtAt,
 }) => {
   const statusClasses = cn({
     [styles.status]: true,
-    [styles.success]: catched,
-    [styles.danger]: !catched,
+    [styles.success]: caught,
+    [styles.danger]: !caught,
     [styles.dark]: isDarkTheme(),
   });
 
   const altText = `${name}${loc('view')}`;
   const statusText = loc('status');
-  const noCatchedText = loc('noCatched');
-  const catchedText = loc('catched');
+  const noCaughtText = loc('noCaught');
+  const caughtText = loc('caught');
   const dateText = loc('date');
 
   return (
@@ -43,10 +43,10 @@ const PokemonCard = ({
             {statusText}
             :&nbsp;
           </span>
-          {catched ? <img src="/images/icons/catched.png" alt={catchedText} /> : <img src="/images/icons/no-catched.png" alt={noCatchedText} />}
-          <span>{catched ? catchedText : noCatchedText}</span>
+          {caught ? <img src="/images/icons/catched.png" alt={caughtText} /> : <img src="/images/icons/no-catched.png" alt={noCaughtText} />}
+          <span>{caught ? caughtText : noCaughtText}</span>
         </div>
-        <span>{catched ? `${dateText}: ${catchedAt}` : null}</span>
+        <span>{caught ? `${dateText}: ${caughtAt}` : null}</span>
       </div>
 
     </div>

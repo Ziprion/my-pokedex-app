@@ -6,8 +6,8 @@
   "altLogo": "Logotype",
   "view": "'s view",
   "status": "Status",
-  "catched": "Catched",
-  "noCatched": "Do not catched",
+  "caught": "Caught",
+  "noCaught": "Do not caught",
   "date": "Date",
   "catch": "Catch",
   "lang": "Language",
@@ -24,5 +24,6 @@
   "sortNameAsc": "Sort by name ascending",
   "sortNameDesc": "Sort by name descending",
   "searchPlaceholder": "Search pokemon by name or ID",
-  "notFoundSearch": "Not matches"
+  "notFoundSearch": "Not matches",
+  "networkError": "Network error"
 }

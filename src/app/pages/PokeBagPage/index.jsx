@@ -10,10 +10,10 @@ import styles from './PokeBagPage.module.scss';
 
 const PokeBagPage = () => {
   const {
-    catchedPokemons, sortedBy, searchText,
+    caughtPokemons, sortedBy, searchText,
   } = useSelector(({ pokemonsState }) => pokemonsState);
 
-  const currentPokemons = catchedPokemons.filter((pokemon) => isFound(pokemon, searchText));
+  const currentPokemons = caughtPokemons.filter((pokemon) => isFound(pokemon, searchText));
 
   const sortedPokemons = mappingSortPokemons[sortedBy](currentPokemons);
 

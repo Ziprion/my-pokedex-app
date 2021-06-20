@@ -8,7 +8,7 @@ import { isDarkTheme } from '@utils/themeUtils';
 import styles from './PokemonItem.module.scss';
 
 const PokemonItem = ({
-  id, name, catched, handleClick,
+  id, name, caught, handleClick,
 }) => {
   const itemClasses = cn({
     [styles.item]: true,
@@ -27,7 +27,7 @@ const PokemonItem = ({
           />
         </div>
         <span className={styles.name}>{name}</span>
-        <button className={styles.button} type="button" disabled={catched} onClick={handleClick(id, name)}>
+        <button className={styles.button} type="button" disabled={caught} onClick={handleClick(id, name)}>
           {loc('catch')}
         </button>
       </div>

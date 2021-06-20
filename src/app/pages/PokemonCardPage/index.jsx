@@ -12,27 +12,28 @@ import WithLoading from '@HOCs/WithLoading';
 const PokemonCardPage = ({ setLoading }) => {
   const { id: stringId } = useParams();
   const [name, setName] = useState(null);
-  const [error, setError] = useState('');
+  const [caught, setCaught] = useState(null);
+  const [caughtAt, setCaughtAt] = useState(null);
+  const [error, setError] = useState(null);
   const id = Number(stringId);
+  const { caughtPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
+  const isCaught = caughtPokemons.find((pokemon) => pokemon.id === id);
 
   useEffect(async () => {
     setLoading(true);
     try {
       const { data } = await fetchPokemonById(id);
       setName(data[0].name);
+      setCaught(!!isCaught);
+      setCaughtAt(isCaught ? isCaught.caughtAt : null);
     } catch (e) {
-      const err = (e.message === 'data[0] is undefined') ? 'not found' : 'network trouble';
+      const err = (e.message === 'data[0] is undefined' || e.message === 'r[0] is undefined') ? 'not found' : 'network trouble';
       setError(err);
     }
     setTimeout(() => {
       setLoading(false);
     }, 200);
   }, [id]);
-
-  const { catchedPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
-  const isCatched = catchedPokemons.find((pokemon) => pokemon.id === id);
-  const catched = !!isCatched;
-  const catchedAt = isCatched ? isCatched.catchedAt : null;
 
   if (error === 'not found') {
     return (
@@ -49,7 +50,7 @@ const PokemonCardPage = ({ setLoading }) => {
   return (
     <>
       <SwipePokemons id={id} />
-      <PokemonCard id={id} name={name} catched={catched} catchedAt={catchedAt} />
+      <PokemonCard id={id} name={name} caught={caught} caughtAt={caughtAt} />
     </>
   );
 };

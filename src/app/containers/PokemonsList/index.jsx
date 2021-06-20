@@ -6,8 +6,8 @@ import PokemonItem from '@components/PokemonItem';
 
 const PokemonsList = ({ pokemons }) => {
   const dispatch = useDispatch();
-  const { catchedPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
-  const isCatchedById = (id) => catchedPokemons.find((pokemon) => pokemon.id === id);
+  const { caughtPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
+  const isCaughtById = (id) => caughtPokemons.find((pokemon) => pokemon.id === id);
 
   const handleClick = (id, name) => (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const PokemonsList = ({ pokemons }) => {
           key={id}
           id={id}
           name={name}
-          catched={isCatchedById(id)}
+          caught={isCaughtById(id)}
           handleClick={handleClick}
         />
       ))}

@@ -28,10 +28,10 @@ const PokemonsPage = () => {
     } else {
       setMatches(true);
     }
-  }, [typing]);
+  }, [pokemons]);
 
   const fetchMoreData = async () => {
-    if (isPagination && !typing) {
+    if (isPagination && !typing && matches) {
       try {
         const { data } = await mappingFetchPokemons[sortedBy](nextPage, searchText);
 
