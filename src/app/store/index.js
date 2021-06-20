@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import pokemonsReducer from './pokemonsSlice';
-import uiStateReducer from './uiStateSlice';
+import pokemonsState from './pokemonsStateSlice';
+import uiState from './uiStateSlice';
 
 export default combineReducers({
-  pokemonsState: pokemonsReducer,
-  uiState: uiStateReducer,
+  pokemonsState,
+  uiState,
 });

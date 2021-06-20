@@ -27,7 +27,7 @@ const PokemonItem = ({
           />
         </div>
         <span className={styles.name}>{name}</span>
-        <button className={styles.button} type="button" disabled={catched} onClick={handleClick(id)}>
+        <button className={styles.button} type="button" disabled={catched} onClick={handleClick(id, name)}>
           {loc('catch')}
         </button>
       </div>

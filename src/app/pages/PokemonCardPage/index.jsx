@@ -20,6 +20,7 @@ const PokemonCardPage = ({ setLoading }) => {
       const { data: { 0: { name: pokemonName } } } = await fetchPokemonById(id);
       setName(pokemonName);
     } catch (e) {
+      console.log('Loading single pokemon', e);
       setError('Not found');
     }
     setTimeout(() => {

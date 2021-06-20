@@ -1,0 +1,23 @@
+@import "@scss/variables.scss";
+@import "@scss/mixins.scss";
+
+.select {
+  @include toolbox-bar;
+
+  text-align: center;
+
+  background-image: url("/assets/images/icons/select-light.png");
+  background-repeat: no-repeat;
+  background-position: 270px center;
+  background-size: 15px;
+
+  cursor: pointer;
+}
+
+.dark {
+  color: $light;
+
+  background-color: $medium-gray;
+  background-image: url("/assets/images/icons/select-dark.png");
+  border: 1px solid $dark;
+}

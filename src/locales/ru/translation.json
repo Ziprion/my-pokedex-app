@@ -18,5 +18,11 @@
   "themeDark": "Темная",
   "notFound": "Не найдено",
   "next": "Следующий покемон",
-  "previous": "Предыдущий покемон"
+  "previous": "Предыдущий покемон",
+  "sortIdAsc": "По возрастанию ID",
+  "sortIdDesc": "По убыванию ID",
+  "sortNameAsc": "По имени",
+  "sortNameDesc": "По имени в обратном порядке",
+  "searchPlaceholder": "Поиск по имени или ID",
+  "notFoundSearch": "Нет совпадений"
 }

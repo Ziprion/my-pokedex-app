@@ -1,47 +1,51 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
-import { getPokemonsByPage } from '@utils/fetchUtils';
-import { loadPokemons, stopLoading } from '@store/pokemonsSlice';
+import { mappingFetchPokemons, limit } from '@utils/fetchUtils';
+import { addPokemons, stopPagination } from '@store/pokemonsStateSlice';
 
 import PokemonsList from '@containers/PokemonsList';
 import AnimationLoader from '@components/AnimationLoader';
-import { totalPokemonsCount } from '../../utils/pokemonUtils';
+import ToolsComponent from '@components/ToolsComponent';
 
 import styles from './PokemonsPage.module.scss';
 
-const PokemonsPage = ({ justCatched = false }) => {
-  if (justCatched) {
-    return (
-      <div className={styles.pokemonBox}>
-        <PokemonsList justCatched />
-      </div>
-    );
-  }
-
+const PokemonsPage = () => {
   const dispatch = useDispatch();
-  const { pokemons, page, loading } = useSelector(({ pokemonsState }) => pokemonsState);
+
+  const {
+    pokemons, sortedBy, nextPage, isPagination, searchText, typing,
+  } = useSelector(({ pokemonsState }) => pokemonsState);
 
   const fetchMoreData = async () => {
-    if (pokemons.length >= totalPokemonsCount) {
-      dispatch(stopLoading());
-      return;
-    }
+    if (isPagination && !typing) {
+      try {
+        const { data } = await mappingFetchPokemons[sortedBy](nextPage, searchText);
 
-    const { data } = await getPokemonsByPage(page);
-    dispatch(loadPokemons(data));
+        if (data.length < limit) {
+          dispatch(stopPagination());
+        }
+
+        dispatch(addPokemons(data));
+      } catch (e) {
+        console.log('Loading list of pokemons', e);
+      }
+    }
   };
 
   return (
-    <InfiniteScroll
-      className={styles.pokemonBox}
-      initialLoad
-      loadMore={fetchMoreData}
-      hasMore={loading}
-      loader={<div className={styles.loading} key={0}><AnimationLoader /></div>}
-    >
-      <PokemonsList />
-    </InfiniteScroll>
+    <>
+      <ToolsComponent />
+      <InfiniteScroll
+        className={styles.pokemonBox}
+        initialLoad
+        loadMore={fetchMoreData}
+        hasMore={isPagination}
+        loader={<div className={styles.loading} key={0}><AnimationLoader /></div>}
+      >
+        <PokemonsList pokemons={pokemons} />
+      </InfiniteScroll>
+    </>
   );
 };
 

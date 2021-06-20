@@ -4,3 +4,12 @@
 .pokemonBox {
   @include pokemons-box;
 }
+
+.feedback {
+  text-align: center;
+}
+
+.loading {
+  width: 100%;
+  margin: 200px auto 0;
+}

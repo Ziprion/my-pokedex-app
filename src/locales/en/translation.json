@@ -1,7 +1,7 @@
 {
   "pokemons": "Pokémons",
   "pokebag": "PokéBag",
-  "emptyPokeBag": "You have no captured Pokémon",
+  "emptyPokeBag": "You have no captured pokémons",
   "settings": "Settings",
   "altLogo": "Logotype",
   "view": "'s view",
@@ -18,5 +18,11 @@
   "themeDark": "Dark",
   "notFound": "Not Found",
   "next": "Next pokémon",
-  "previous": "Previous pokémon"
+  "previous": "Previous pokémon",
+  "sortIdAsc": "Sort by ID ascending",
+  "sortIdDesc": "Sort by ID descending",
+  "sortNameAsc": "Sort by name ascending",
+  "sortNameDesc": "Sort by name descending",
+  "searchPlaceholder": "Search pokemon by name or ID",
+  "notFoundSearch": "Not matches"
 }
