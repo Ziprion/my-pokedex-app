@@ -19,8 +19,18 @@
   margin-top: 10px;
   padding: 0;
 
+  background-image: url("/assets/images/icons/reset-light.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 20px;
+
   border-radius: 0 15px 15px 0;
   outline: none;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
 
   &:focus {
     border: 1px solid $blue;
@@ -32,4 +42,8 @@
 
   background: $medium-gray;
   border: 1px solid $dark;
+}
+
+.darkReset {
+  background-image: url("/assets/images/icons/reset-dark.png");
 }

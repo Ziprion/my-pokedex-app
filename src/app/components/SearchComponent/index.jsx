@@ -12,7 +12,7 @@ const SearchComponent = () => {
   const [timer, setTimer] = useState(null);
   const { searchText } = useSelector(({ pokemonsState }) => pokemonsState);
 
-  const handleChange = ({ target }) => {
+  const handleChange = () => ({ target }) => {
     dispatch(setSearchingText(target.value.trim()));
     clearTimeout(timer);
     setTimer(setTimeout(async () => {
@@ -31,6 +31,11 @@ const SearchComponent = () => {
     [styles.dark]: isDarkTheme(),
   });
 
+  const resetClasses = cn({
+    [styles.reset]: true,
+    [styles.darkReset]: isDarkTheme(),
+  });
+
   return (
     <div className={styles.searchBox}>
 
@@ -38,10 +43,10 @@ const SearchComponent = () => {
         className={inputClasses}
         type="text"
         value={searchText}
-        onChange={(e) => handleChange(e)}
+        onChange={handleChange()}
         placeholder={loc('searchPlaceholder')}
       />
-      <button type="button" className={styles.reset} onClick={handleClick}>x</button>
+      <button type="button" className={resetClasses} onClick={handleClick}>&nbsp;</button>
     </div>
   );
 };

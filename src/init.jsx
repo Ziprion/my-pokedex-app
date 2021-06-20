@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+
 import reducer from '@store';
 import resources from '@locales';
 import { setDefaultLanguage, getCurrentLanguage } from '@utils/languageUtils';

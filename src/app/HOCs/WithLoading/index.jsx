@@ -4,7 +4,7 @@ import LoaderWrapper from '@components/LoaderWrapper';
 
 const WithLoading = (Component) => {
   const LoadingComponent = (props) => {
-    const [isLoading, setLoading] = useState(true);
+    const [isLoading, setLoading] = useState(null);
     const setLoadingState = (isLoadingComponent) => {
       setLoading(isLoadingComponent);
     };

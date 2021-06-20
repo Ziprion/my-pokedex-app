@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { mappingSortPokemons } from '@utils/pokemonUtils';
+import { mappingSortPokemons, isFound } from '@utils/pokemonUtils';
 import { loc } from '@utils/languageUtils';
 
 import ToolsComponent from '@components/ToolsComponent';
@@ -13,13 +13,13 @@ const PokeBagPage = () => {
     catchedPokemons, sortedBy, searchText,
   } = useSelector(({ pokemonsState }) => pokemonsState);
 
-  const currentPokemons = catchedPokemons.filter(({ name, id }) => (
-    name.includes(searchText) || String(id).includes(searchText)
-  ));
+  const currentPokemons = catchedPokemons.filter((pokemon) => isFound(pokemon, searchText));
+
   const sortedPokemons = mappingSortPokemons[sortedBy](currentPokemons);
 
   const emptyBagMessage = loc('emptyPokeBag');
   const noMatchesMessage = loc('notFoundSearch');
+
   return (
     <>
       <ToolsComponent />

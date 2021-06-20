@@ -2,16 +2,16 @@ import React from 'react';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Header from '@components/Header';
 import PokemonsPage from '@pages/PokemonsPage';
-import PokemBagPage from '@pages/PokeBagPage';
+import PokeBagPage from '@pages/PokeBagPage';
 import NoMatchPage from '@pages/NoMatchPage';
 import SettingsPage from '@pages/SettingsPage';
 import PokemonCardPage from '@pages/PokemonCardPage';
 
 import './App.scss';
-import { useSelector } from 'react-redux';
 
 const App = () => {
   const theme = useSelector((state) => state.uiState.theme);
@@ -31,7 +31,7 @@ const App = () => {
             <PokemonsPage />
           </Route>
           <Route exact path="/pokebag">
-            <PokemBagPage />
+            <PokeBagPage />
           </Route>
           <Route exact path="/settings">
             <SettingsPage />
