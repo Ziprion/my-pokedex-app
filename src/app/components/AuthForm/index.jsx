@@ -34,7 +34,7 @@ const AuthForm = () => {
         onSubmit={async (values, { setSubmitting }) => {
           setSubmitting(true);
           setError(null);
-          const data = values;
+          const data = { username: values.username.toLowerCase(), password: values.password };
           try {
             const response = await fetchLogin(data);
 

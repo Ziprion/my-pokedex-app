@@ -16,6 +16,9 @@ const users = [
   {
     id: 2, username: 'test', password: 'test', token: 'grgrecscwecregds', caughtPokemons: [],
   },
+  {
+    id: 3, username: 'denis', password: 'denis', token: 'jkfdnbfdnbjdfnbdf', caughtPokemons: [],
+  },
 ];
 
 app.use(express.static(path.join(__dirname, '..', 'dist')));

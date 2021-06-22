@@ -40,6 +40,10 @@
   }
 }
 
+.username {
+  text-transform: capitalize;
+}
+
 .dark {
   color: $light;
 
