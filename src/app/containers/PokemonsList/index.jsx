@@ -10,25 +10,26 @@ import PokemonItem from '@components/PokemonItem';
 const PokemonsList = ({ pokemons }) => {
   const dispatch = useDispatch();
   const auth = useAuth();
-  const { caughtPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
+  const { caughtPokemons, isFetching } = useSelector(({ pokemonsState }) => pokemonsState);
   const isCaughtById = (id) => caughtPokemons.find((pokemon) => pokemon.id === id);
 
   const handleClick = (id, name) => async (e) => {
     e.preventDefault();
     const pokemon = { id, name, caughtAt: new Date().toLocaleDateString() };
-
-    if (auth.status) {
-      try {
-        dispatch(setFetching(true));
-        const { data } = await fetchCatch(pokemon);
-        dispatch(catchPokemon(data));
-        dispatch(setFetching(false));
-      } catch (err) {
-        console.log(err);
-        alert('network error');
+    if (!isFetching) {
+      if (auth.status) {
+        try {
+          dispatch(setFetching(true));
+          const { data } = await fetchCatch(pokemon);
+          dispatch(catchPokemon(data));
+          dispatch(setFetching(false));
+        } catch (err) {
+          console.log(err);
+          alert('network error');
+        }
+      } else {
+        dispatch(catchPokemon(pokemon));
       }
-    } else {
-      dispatch(catchPokemon(pokemon));
     }
   };
 

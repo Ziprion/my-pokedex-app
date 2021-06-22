@@ -55,14 +55,20 @@
 
 .image {
   width: 80%;
+  min-height: 147.3px;
   margin: 0 auto;
 
   img {
     width: 100%;
   }
 
+  @media screen and (max-width: $breakpoint4) {
+    min-height: 107.3px;
+  }
+
   @media screen and (max-width: $breakpoint5) {
     width: 95%;
+    min-height: 76.7px;
   }
 }
 

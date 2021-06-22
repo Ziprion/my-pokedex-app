@@ -6,15 +6,12 @@ import cn from 'classnames';
 import { loc } from '@utils/languageUtils';
 import { isDarkTheme } from '@utils/themeUtils';
 
-import { useSelector } from 'react-redux';
 import styles from './PokemonItem.module.scss';
 
 const PokemonItem = ({
   id, name, caught, caughtAt, handleClick,
 }) => {
-  const { isFetching } = useSelector(({ pokemonsState }) => pokemonsState);
   const { pathname } = useLocation();
-  console.log(pathname);
 
   const itemClasses = cn({
     [styles.item]: true,
@@ -42,7 +39,7 @@ const PokemonItem = ({
             <p>{caughtAt}</p>
           </>
         ) : (
-          <button className={styles.button} type="button" disabled={caught || isFetching} onClick={handleClick(id, name)}>
+          <button className={styles.button} type="button" disabled={caught} onClick={handleClick(id, name)}>
             {buttonText}
           </button>
         ) }
