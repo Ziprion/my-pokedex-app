@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
+
 import { mappingFetchPokemons, limit } from '@utils/fetchUtils';
 import { addPokemons, stopPagination } from '@store/pokemonsStateSlice';
 import { loc } from '@utils/languageUtils';

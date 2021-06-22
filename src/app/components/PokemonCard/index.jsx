@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import ReactImageFallback from 'react-image-fallback';
+
 import { loc } from '@utils/languageUtils';
 import { isDarkTheme } from '@utils/themeUtils';
 

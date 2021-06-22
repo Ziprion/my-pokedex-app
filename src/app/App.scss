@@ -32,6 +32,7 @@ input, select {
   font-family: inherit;
 
   border: none;
+  outline: none;
 }
 
 body {
@@ -82,5 +83,5 @@ body {
 .dark {
   color: $light;
 
-  background-color: $medium-gray;
+  background-color: $semi-dark;
 }

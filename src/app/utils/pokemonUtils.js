@@ -3,7 +3,6 @@ import _ from 'lodash';
 export const isFound = ({ name, id }, searchText) => {
   const searchBy = (attr, text) => String(attr).includes(text);
   const normalizedText = _.trimStart(searchText.trim().toLowerCase(), '#');
-
   return searchBy(name, normalizedText) || searchBy(id, normalizedText);
 };
 

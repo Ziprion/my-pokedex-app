@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 import { fetchPokemonById } from '@utils/fetchUtils';
+import WithLoading from '@HOCs/WithLoading';
 
 import SwipePokemons from '@components/SwipePokemons';
 import PokemonCard from '@components/PokemonCard';
 import NoMatchPage from '@pages/NoMatchPage';
 import NetworkErrorPage from '@pages/NetworkErrorPage';
-import WithLoading from '@HOCs/WithLoading';
 
 const PokemonCardPage = ({ setLoading }) => {
   const { id: stringId } = useParams();

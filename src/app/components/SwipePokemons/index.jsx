@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { getNextId, getPreviousId } from '@utils/pokemonUtils';
 
 import SwipeButton from '@components/SwipeButton';

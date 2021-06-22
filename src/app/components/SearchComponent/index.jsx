@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
+
 import { setSearchingText, stopTyping } from '@store/pokemonsStateSlice';
 import { loc } from '@utils/languageUtils';
 import { isDarkTheme } from '@utils/themeUtils';

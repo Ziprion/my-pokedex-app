@@ -25,5 +25,12 @@
   "sortNameDesc": "Sort by name descending",
   "searchPlaceholder": "Search pokemon by name or ID",
   "notFoundSearch": "Not matches",
-  "networkError": "Network error"
+  "networkError": "Network error",
+  "saveMessage": "Login for save your progress",
+  "username": "Username",
+  "password": "Password",
+  "loginError": "Wrong username or password",
+  "signIn": "Login",
+  "loginSuccess": "You logged as ",
+  "signOut": "Exit"
 }

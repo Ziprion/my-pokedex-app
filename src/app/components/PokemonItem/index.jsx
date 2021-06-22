@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactImageFallback from 'react-image-fallback';
 import cn from 'classnames';
+
 import { loc } from '@utils/languageUtils';
 import { isDarkTheme } from '@utils/themeUtils';
 

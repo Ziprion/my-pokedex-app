@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+
 import { isDarkTheme } from '@utils/themeUtils';
 
 import AnimationLoader from '@components/AnimationLoader';

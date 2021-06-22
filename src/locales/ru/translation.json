@@ -25,5 +25,12 @@
   "sortNameDesc": "По имени в обратном порядке",
   "searchPlaceholder": "Поиск по имени или ID",
   "notFoundSearch": "Нет совпадений",
-  "networkError": "Ошибка сети"
+  "networkError": "Ошибка сети",
+  "saveMessage": "Войдите, чтобы сохранить прогресс",
+  "username": "Имя пользователя",
+  "password": "Пароль",
+  "loginError": "Неверное имя или пароль",
+  "signIn": "Войти",
+  "loginSuccess": "Вы вошли как ",
+  "signOut": "Выйти"
 }

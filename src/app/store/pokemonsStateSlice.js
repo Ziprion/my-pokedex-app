@@ -16,8 +16,8 @@ export const pokemonsStateSlice = createSlice({
       state.pokemons = [...state.pokemons, ...payload];
       state.nextPage += 1;
     },
-    catchPokemon: (state, { payload: { id, name } }) => {
-      state.caughtPokemons.push({ id, name, caughtAt: new Date().toLocaleDateString() });
+    catchPokemon: (state, { payload }) => {
+      state.caughtPokemons.push(payload);
     },
     changeSortedBy: (state, { payload }) => {
       state.sortedBy = payload;
@@ -38,6 +38,12 @@ export const pokemonsStateSlice = createSlice({
     stopTyping: (state) => {
       state.typing = false;
     },
+    syncCaughtPokemons: (state, { payload }) => {
+      state.caughtPokemons = payload;
+    },
+    cleanCaughtPokemons: (state) => {
+      state.caughtPokemons = [];
+    },
   },
 });
 
@@ -48,6 +54,8 @@ export const {
   stopPagination,
   setSearchingText,
   stopTyping,
+  syncCaughtPokemons,
+  cleanCaughtPokemons,
 } = pokemonsStateSlice.actions;
 
 export default pokemonsStateSlice.reducer;
