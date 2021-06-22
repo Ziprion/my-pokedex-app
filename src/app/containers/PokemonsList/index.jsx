@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; /* eslint no-alert: 0 */
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchCatch } from '@utils/fetchUtils';
@@ -23,6 +23,7 @@ const PokemonsList = ({ pokemons }) => {
         dispatch(catchPokemon(data));
       } catch (err) {
         console.log(err);
+        alert('network error');
       }
     } else {
       dispatch(catchPokemon(pokemon));
