@@ -11,7 +11,7 @@ import styles from './SearchComponent.module.scss';
 const SearchComponent = () => {
   const dispatch = useDispatch();
   const [timer, setTimer] = useState(null);
-  const { searchText } = useSelector(({ pokemonsState }) => pokemonsState);
+  const { searchText, isFetching } = useSelector(({ pokemonsState }) => pokemonsState);
 
   const handleChange = () => ({ target }) => {
     dispatch(setSearchingText(target.value.trim()));
@@ -46,6 +46,7 @@ const SearchComponent = () => {
         value={searchText}
         onChange={handleChange()}
         placeholder={loc('searchPlaceholder')}
+        readOnly={isFetching}
       />
       <button type="button" className={resetClasses} onClick={handleClick}>&nbsp;</button>
     </div>
