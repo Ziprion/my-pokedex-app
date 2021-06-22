@@ -10,6 +10,7 @@ export const pokemonsStateSlice = createSlice({
     isPagination: true,
     searchText: '',
     typing: false,
+    isFetching: false,
   },
   reducers: {
     addPokemons: (state, { payload }) => {
@@ -44,6 +45,9 @@ export const pokemonsStateSlice = createSlice({
     cleanCaughtPokemons: (state) => {
       state.caughtPokemons = [];
     },
+    setFetching: (state, { payload }) => {
+      state.isFetching = payload;
+    },
   },
 });
 
@@ -56,6 +60,7 @@ export const {
   stopTyping,
   syncCaughtPokemons,
   cleanCaughtPokemons,
+  setFetching,
 } = pokemonsStateSlice.actions;
 
 export default pokemonsStateSlice.reducer;

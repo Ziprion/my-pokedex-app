@@ -1,20 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ReactImageFallback from 'react-image-fallback';
 import cn from 'classnames';
 
 import { loc } from '@utils/languageUtils';
 import { isDarkTheme } from '@utils/themeUtils';
 
+import { useSelector } from 'react-redux';
 import styles from './PokemonItem.module.scss';
 
 const PokemonItem = ({
-  id, name, caught, handleClick,
+  id, name, caught, caughtAt, handleClick,
 }) => {
+  const { isFetching } = useSelector(({ pokemonsState }) => pokemonsState);
+  const { pathname } = useLocation();
+  console.log(pathname);
+
   const itemClasses = cn({
     [styles.item]: true,
     [styles.dark]: isDarkTheme(),
   });
+
+  const buttonText = loc('catch');
+  const statusText = loc('caughtAt');
 
   return (
     <Link to={`/pokemons/${id}`}>
@@ -28,9 +36,16 @@ const PokemonItem = ({
           />
         </div>
         <span className={styles.name}>{name}</span>
-        <button className={styles.button} type="button" disabled={caught} onClick={handleClick(id, name)}>
-          {loc('catch')}
-        </button>
+        {caught && pathname === '/pokebag' ? (
+          <>
+            <p>{statusText}</p>
+            <p>{caughtAt}</p>
+          </>
+        ) : (
+          <button className={styles.button} type="button" disabled={caught || isFetching} onClick={handleClick(id, name)}>
+            {buttonText}
+          </button>
+        ) }
       </div>
     </Link>
   );

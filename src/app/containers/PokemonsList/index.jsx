@@ -2,7 +2,7 @@ import React from 'react'; /* eslint no-alert: 0 */
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchCatch } from '@utils/fetchUtils';
-import { catchPokemon } from '@store/pokemonsStateSlice';
+import { catchPokemon, setFetching } from '@store/pokemonsStateSlice';
 import { useAuth } from '@hooks/useAuth.jsx';
 
 import PokemonItem from '@components/PokemonItem';
@@ -19,8 +19,10 @@ const PokemonsList = ({ pokemons }) => {
 
     if (auth.status) {
       try {
+        dispatch(setFetching(true));
         const { data } = await fetchCatch(pokemon);
         dispatch(catchPokemon(data));
+        dispatch(setFetching(false));
       } catch (err) {
         console.log(err);
         alert('network error');
@@ -32,12 +34,13 @@ const PokemonsList = ({ pokemons }) => {
 
   return (
     <>
-      {pokemons.map(({ id, name }) => (
+      {pokemons.map(({ id, name, caughtAt }) => (
         <PokemonItem
           key={id}
           id={id}
           name={name}
           caught={isCaughtById(id)}
+          caughtAt={caughtAt}
           handleClick={handleClick}
         />
       ))}
