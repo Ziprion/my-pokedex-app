@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { fetchPokemonById } from '@utils/fetchUtils';
 import WithLoading from '@HOCs/WithLoading';
 
-import SwipePokemons from '@components/SwipePokemons';
+import SwipePokemons from '@containers/SwipePokemons';
 import PokemonCard from '@components/PokemonCard';
 import NoMatchPage from '@pages/NoMatchPage';
 import NetworkErrorPage from '@pages/NetworkErrorPage';

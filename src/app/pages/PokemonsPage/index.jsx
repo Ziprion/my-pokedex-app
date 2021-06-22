@@ -8,7 +8,7 @@ import { loc } from '@utils/languageUtils';
 
 import PokemonsList from '@containers/PokemonsList';
 import AnimationLoader from '@components/AnimationLoader';
-import ToolsComponent from '@components/ToolsComponent';
+import ToolsComponent from '@containers/ToolsComponent';
 import NetworkErrorPage from '@pages/NetworkErrorPage';
 
 import styles from './PokemonsPage.module.scss';

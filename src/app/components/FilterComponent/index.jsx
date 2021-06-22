@@ -1,22 +1,12 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
 
-import { changeSortedBy } from '@store/pokemonsStateSlice';
 import { loc } from '@utils/languageUtils';
 import { isDarkTheme } from '@utils/themeUtils';
 
 import styles from './FilterComponent.module.scss';
 
-const FilterComponent = () => {
-  const dispatch = useDispatch();
-  const { sortedBy } = useSelector(({ pokemonsState }) => pokemonsState);
-
-  const handleChange = ({ target }) => {
-    const selectedOption = target.selectedOptions[0].value;
-    dispatch(changeSortedBy(selectedOption));
-  };
-
+const FilterComponent = ({ sortedBy, handleChange }) => {
   const inputClasses = cn({
     [styles.select]: true,
     [styles.dark]: isDarkTheme(),

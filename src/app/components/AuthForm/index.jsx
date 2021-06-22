@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import cn from 'classnames';
 
 import { loc } from '@utils/languageUtils';
 import { isDarkTheme } from '@utils/themeUtils';
-import { useAuth } from '@hooks/useAuth.jsx';
-import { fetchLogin } from '@utils/fetchUtils';
-import { syncCaughtPokemons } from '@store/pokemonsStateSlice';
 
 import styles from './AuthForm.module.scss';
 
-const AuthForm = () => {
-  const dispatch = useDispatch();
-  const auth = useAuth();
-  const [error, setError] = useState(null);
-
+const AuthForm = ({ handleSubmit, error }) => {
   const formClasses = cn({
     [styles.form]: true,
     [styles.dark]: isDarkTheme(),
@@ -31,28 +23,7 @@ const AuthForm = () => {
       <span>{loc('saveMessage')}</span>
       <Formik
         initialValues={{ username: '', password: '' }}
-        onSubmit={async (values, { setSubmitting }) => {
-          setSubmitting(true);
-          setError(null);
-          const data = { username: values.username.toLowerCase(), password: values.password };
-          try {
-            const response = await fetchLogin(data);
-
-            if (response.data.message === 'Unauthorized') {
-              setError('Unauthorized');
-              return;
-            }
-
-            localStorage.username = response.data.username;
-            localStorage.token = response.data.token;
-            const { caughtPokemons } = response.data;
-            dispatch(syncCaughtPokemons(caughtPokemons));
-            auth.signin();
-          } catch (e) {
-            setError(e.message);
-            setSubmitting(false);
-          }
-        }}
+        onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
           <Form>

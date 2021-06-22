@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UiSettings from '@components/UiSettings';
-import AuthTools from '@components/AuthTools';
+import UiSettings from '@containers/UiSettings';
+import AuthTools from '@containers/AuthTools';
 
 const SettingsPage = () => (
   <>
