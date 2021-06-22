@@ -10,7 +10,7 @@ import styles from './FilterComponent.module.scss';
 
 const FilterComponent = () => {
   const dispatch = useDispatch();
-  const { sortedBy, isFetching } = useSelector(({ pokemonsState }) => pokemonsState);
+  const { sortedBy } = useSelector(({ pokemonsState }) => pokemonsState);
 
   const handleChange = ({ target }) => {
     const selectedOption = target.selectedOptions[0].value;
@@ -27,7 +27,6 @@ const FilterComponent = () => {
       className={inputClasses}
       onChange={handleChange}
       defaultValue={sortedBy}
-      disabled={isFetching}
     >
       <option value="idAsc">{loc('sortIdAsc')}</option>
       <option value="idDesc">{loc('sortIdDesc')}</option>

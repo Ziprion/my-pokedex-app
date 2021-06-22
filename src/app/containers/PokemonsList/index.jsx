@@ -16,6 +16,7 @@ const PokemonsList = ({ pokemons }) => {
   const handleClick = (id, name) => async (e) => {
     e.preventDefault();
     const pokemon = { id, name, caughtAt: new Date().toLocaleDateString() };
+
     if (!isFetching) {
       if (auth.status) {
         try {

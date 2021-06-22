@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import { mappingFetchPokemons, limit } from '@utils/fetchUtils';
-import { addPokemons, stopPagination, setFetching } from '@store/pokemonsStateSlice';
+import { addPokemons, stopPagination } from '@store/pokemonsStateSlice';
 import { loc } from '@utils/languageUtils';
 
 import PokemonsList from '@containers/PokemonsList';
@@ -34,17 +34,14 @@ const PokemonsPage = () => {
   const fetchMoreData = async () => {
     if (isPagination && !typing && matches) {
       try {
-        setFetching(true);
         const { data } = await mappingFetchPokemons[sortedBy](nextPage, searchText);
 
         if (data.length < limit) {
           dispatch(stopPagination());
         }
-        setFetching(false);
         dispatch(addPokemons(data));
       } catch (e) {
         setError(e);
-        setFetching(false);
       }
     }
   };
