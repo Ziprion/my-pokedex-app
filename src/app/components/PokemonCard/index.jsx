@@ -7,9 +7,11 @@ import { isDarkTheme } from '@utils/themeUtils';
 
 import styles from './PokemonCard.module.scss';
 
-const PokemonCard = ({
-  id, name, caught, caughtAt,
-}) => {
+const PokemonCard = ({ pokemon = {} }) => {
+  const {
+    id, name, caught, caughtAt,
+  } = pokemon;
+
   const statusClasses = cn({
     [styles.status]: true,
     [styles.success]: caught,

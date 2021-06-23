@@ -58,7 +58,6 @@ const PokemonsPage = () => {
       </div>
       <InfiniteScroll
         className={styles.pokemonBox}
-        initialLoad
         loadMore={fetchMoreData}
         hasMore={isPagination}
         loader={<div className={styles.loading} key={0}><AnimationLoader /></div>}

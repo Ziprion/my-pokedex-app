@@ -2,14 +2,7 @@
 @import "@scss/mixins.scss";
 
 .form {
-  width: 320px;
-  margin: 0 auto;
-  padding: 16px;
-
-  text-align: center;
-
-  border: 1px solid $medium-gray;
-  border-radius: 10px;
+  @include login-box;
 
   form {
     @include d-flex-standart;
@@ -36,28 +29,10 @@
   }
 
   button {
-    width: 95%;
-    max-width: 150px;
-    padding: 8px;
-
-    color: $light;
-    text-align: center;
-
-    background: $semi-dark;
-    border: 1px solid $semi-dark;
-    border-radius: 10px;
+    @include button;
 
     &:hover {
-      color: $dark;
-
-      background-color: $light;
-    }
-
-    &[disabled] {
-      color: $dis-col;
-
-      background: $dis-back;
-      cursor: default;
+      border: 1px solid $semi-dark;
     }
   }
 }

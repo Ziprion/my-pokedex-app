@@ -73,30 +73,9 @@
 }
 
 .button {
-  display: block;
-  width: 95%;
-  max-width: 150px;
+  @include button;
+
   margin: 10px auto 0;
-  padding: 8px;
-
-  color: $light;
-  text-align: center;
-
-  background: $semi-dark;
-  border-radius: 10px;
-
-  &:hover {
-    color: $dark;
-
-    background-color: $light;
-  }
-
-  &[disabled] {
-    color: $dis-col;
-
-    background: $dis-back;
-    cursor: default;
-  }
 
   @media screen and (max-width: $breakpoint5) {
     margin-top: 5px;

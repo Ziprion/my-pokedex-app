@@ -12,21 +12,22 @@ import NetworkErrorPage from '@pages/NetworkErrorPage';
 
 const PokemonCardPage = ({ setLoading }) => {
   const { id: stringId } = useParams();
-  const [name, setName] = useState(null);
-  const [caught, setCaught] = useState(null);
-  const [caughtAt, setCaughtAt] = useState(null);
+  const [pokemon, setPokemon] = useState();
   const [error, setError] = useState(null);
   const id = Number(stringId);
   const { caughtPokemons } = useSelector(({ pokemonsState }) => pokemonsState);
-  const isCaught = caughtPokemons.find((pokemon) => pokemon.id === id);
+  const isCaught = caughtPokemons.find((p) => p.id === id);
 
   useEffect(async () => {
     setLoading(true);
     try {
       const { data } = await fetchPokemonById(id);
-      setName(data[0].name);
-      setCaught(!!isCaught);
-      setCaughtAt(isCaught ? isCaught.caughtAt : null);
+      setPokemon({
+        id,
+        name: data[0].name,
+        caught: !!isCaught,
+        caughtAt: isCaught ? isCaught.caughtAt : null,
+      });
     } catch (e) {
       const err = (e.message === 'data[0] is undefined' || e.message === 'r[0] is undefined') ? 'not found' : 'network trouble';
       setError(err);
@@ -51,7 +52,7 @@ const PokemonCardPage = ({ setLoading }) => {
   return (
     <>
       <SwipePokemons id={id} />
-      <PokemonCard id={id} name={name} caught={caught} caughtAt={caughtAt} />
+      <PokemonCard pokemon={pokemon} />
     </>
   );
 };

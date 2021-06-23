@@ -2,40 +2,18 @@
 @import "@scss/mixins.scss";
 
 .messageLogin {
-  flex-direction: column;
-  width: 320px;
-  margin: 0 auto;
-  padding: 16px;
-
-  border: 1px solid $medium-gray;
-  border-radius: 10px;
-
+  @include login-box;
   @include d-flex-standart;
 
+  flex-direction: column;
+
   button {
-    width: 95%;
-    max-width: 150px;
-    margin-top: 20px;
-    padding: 8px;
+    @include button;
 
-    color: $light;
-    text-align: center;
-
-    background: $semi-dark;
-    border: 1px solid $semi-dark;
-    border-radius: 10px;
+    margin-top: 10px;
 
     &:hover {
-      color: $dark;
-
-      background-color: $light;
-    }
-
-    &[disabled] {
-      color: $dis-col;
-
-      background: $dis-back;
-      cursor: default;
+      border: 1px solid $semi-dark;
     }
   }
 }
