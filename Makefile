@@ -18,6 +18,6 @@ start:
 	npm run db & npm run development
 
 test:
-	npm test -s
+	npm test
 
 .PHONY: test server
